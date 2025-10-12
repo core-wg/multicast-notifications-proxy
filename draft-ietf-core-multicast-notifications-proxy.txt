@@ -1,0 +1,392 @@
+
+
+
+
+CoRE Working Group                                             M. Tiloca
+Internet-Draft                                                R. Höglund
+Intended status: Informational                                   RISE AB
+Expires: 15 April 2026                                         C. Amsüss
+                                                                        
+                                                            F. Palombini
+                                                             Ericsson AB
+                                                         12 October 2025
+
+
+  Using Proxies for Observe Notifications as CoAP Multicast Responses
+          draft-ietf-core-multicast-notifications-proxy-latest
+
+Abstract
+
+   TBD
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Discussion of this document takes place on the Constrained RESTful
+   Environments Working Group mailing list (core@ietf.org), which is
+   archived at https://mailarchive.ietf.org/arch/browse/core/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/core-wg/multicast-notifications-proxy.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 15 April 2026.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Terminology
+   2.  TBD
+   3.  IANA Considerations
+     3.1.  TBD
+   4.  References
+     4.1.  Normative References
+     4.2.  Informative References
+   Appendix A.  TBD
+   Appendix B.  Document Updates
+     B.1.  Version -00
+   Acknowledgments
+   Authors' Addresses
+
+1.  Introduction
+
+   TBD
+
+1.1.  Terminology
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   TBD
+
+2.  TBD
+
+   TBD
+
+3.  IANA Considerations
+
+   This document has the following actions for IANA.
+
+   Note to RFC Editor: Please replace all occurrences of "[RFC-XXXX]"
+   with the RFC number of this specification and delete this paragraph.
+
+3.1.  TBD
+
+   TBD
+
+4.  References
+
+4.1.  Normative References
+
+   [COSE.Algorithms]
+              IANA, "COSE Algorithms",
+              <https://www.iana.org/assignments/cose/
+              cose.xhtml#algorithms>.
+
+   [COSE.Header.Parameters]
+              IANA, "COSE Header Parameters",
+              <https://www.iana.org/assignments/cose/cose.xhtml#header-
+              parameters>.
+
+   [COSE.Key.Types]
+              IANA, "COSE Key Types",
+              <https://www.iana.org/assignments/cose/cose.xhtml#key-
+              type>.
+
+   [I-D.ietf-ace-key-groupcomm-oscore]
+              Tiloca, M. and F. Palombini, "Key Management for Group
+              Object Security for Constrained RESTful Environments
+              (Group OSCORE) Using Authentication and Authorization for
+              Constrained Environments (ACE)", Work in Progress,
+              Internet-Draft, draft-ietf-ace-key-groupcomm-oscore-18, 28
+              August 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-ace-key-groupcomm-oscore-18>.
+
+   [I-D.ietf-core-groupcomm-bis]
+              Dijk, E. and M. Tiloca, "Group Communication for the
+              Constrained Application Protocol (CoAP)", Work in
+              Progress, Internet-Draft, draft-ietf-core-groupcomm-bis-
+              15, 25 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              groupcomm-bis-15>.
+
+   [I-D.ietf-core-href]
+              Bormann, C. and H. Birkholz, "Constrained Resource
+              Identifiers", Work in Progress, Internet-Draft, draft-
+              ietf-core-href-25, 27 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              href-25>.
+
+   [I-D.ietf-core-observe-multicast-notifications]
+              Tiloca, M., Höglund, R., Amsüss, C., and F. Palombini,
+              "Observe Notifications as CoAP Multicast Responses", Work
+              in Progress, Internet-Draft, draft-ietf-core-observe-
+              multicast-notifications-12, 7 July 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              observe-multicast-notifications-12>.
+
+   [I-D.ietf-core-oscore-groupcomm]
+              Tiloca, M., Selander, G., Palombini, F., Mattsson, J. P.,
+              and R. Höglund, "Group Object Security for Constrained
+              RESTful Environments (Group OSCORE)", Work in Progress,
+              Internet-Draft, draft-ietf-core-oscore-groupcomm-27, 12
+              September 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-core-oscore-groupcomm-27>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC4944]  Montenegro, G., Kushalnagar, N., Hui, J., and D. Culler,
+              "Transmission of IPv6 Packets over IEEE 802.15.4
+              Networks", RFC 4944, DOI 10.17487/RFC4944, September 2007,
+              <https://www.rfc-editor.org/rfc/rfc4944>.
+
+   [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
+              Specifications and Registration Procedures", BCP 13,
+              RFC 6838, DOI 10.17487/RFC6838, January 2013,
+              <https://www.rfc-editor.org/rfc/rfc6838>.
+
+   [RFC7120]  Cotton, M., "Early IANA Allocation of Standards Track Code
+              Points", BCP 100, RFC 7120, DOI 10.17487/RFC7120, January
+              2014, <https://www.rfc-editor.org/rfc/rfc7120>.
+
+   [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
+              Application Protocol (CoAP)", RFC 7252,
+              DOI 10.17487/RFC7252, June 2014,
+              <https://www.rfc-editor.org/rfc/rfc7252>.
+
+   [RFC7641]  Hartke, K., "Observing Resources in the Constrained
+              Application Protocol (CoAP)", RFC 7641,
+              DOI 10.17487/RFC7641, September 2015,
+              <https://www.rfc-editor.org/rfc/rfc7641>.
+
+   [RFC7967]  Bhattacharyya, A., Bandyopadhyay, S., Pal, A., and T.
+              Bose, "Constrained Application Protocol (CoAP) Option for
+              No Server Response", RFC 7967, DOI 10.17487/RFC7967,
+              August 2016, <https://www.rfc-editor.org/rfc/rfc7967>.
+
+   [RFC8085]  Eggert, L., Fairhurst, G., and G. Shepherd, "UDP Usage
+              Guidelines", BCP 145, RFC 8085, DOI 10.17487/RFC8085,
+              March 2017, <https://www.rfc-editor.org/rfc/rfc8085>.
+
+   [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
+              Writing an IANA Considerations Section in RFCs", BCP 26,
+              RFC 8126, DOI 10.17487/RFC8126, June 2017,
+              <https://www.rfc-editor.org/rfc/rfc8126>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8288]  Nottingham, M., "Web Linking", RFC 8288,
+              DOI 10.17487/RFC8288, October 2017,
+              <https://www.rfc-editor.org/rfc/rfc8288>.
+
+   [RFC8610]  Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
+              Definition Language (CDDL): A Notational Convention to
+              Express Concise Binary Object Representation (CBOR) and
+              JSON Data Structures", RFC 8610, DOI 10.17487/RFC8610,
+              June 2019, <https://www.rfc-editor.org/rfc/rfc8610>.
+
+   [RFC8613]  Selander, G., Mattsson, J., Palombini, F., and L. Seitz,
+              "Object Security for Constrained RESTful Environments
+              (OSCORE)", RFC 8613, DOI 10.17487/RFC8613, July 2019,
+              <https://www.rfc-editor.org/rfc/rfc8613>.
+
+   [RFC8949]  Bormann, C. and P. Hoffman, "Concise Binary Object
+              Representation (CBOR)", STD 94, RFC 8949,
+              DOI 10.17487/RFC8949, December 2020,
+              <https://www.rfc-editor.org/rfc/rfc8949>.
+
+   [RFC9203]  Palombini, F., Seitz, L., Selander, G., and M. Gunnarsson,
+              "The Object Security for Constrained RESTful Environments
+              (OSCORE) Profile of the Authentication and Authorization
+              for Constrained Environments (ACE) Framework", RFC 9203,
+              DOI 10.17487/RFC9203, August 2022,
+              <https://www.rfc-editor.org/rfc/rfc9203>.
+
+4.2.  Informative References
+
+   [I-D.amsuess-core-cachable-oscore]
+              Amsüss, C. and M. Tiloca, "Cacheable OSCORE", Work in
+              Progress, Internet-Draft, draft-amsuess-core-cachable-
+              oscore-11, 6 July 2025,
+              <https://datatracker.ietf.org/doc/html/draft-amsuess-core-
+              cachable-oscore-11>.
+
+   [I-D.ietf-core-coap-pubsub]
+              Jimenez, J., Koster, M., and A. Keränen, "A publish-
+              subscribe architecture for the Constrained Application
+              Protocol (CoAP)", Work in Progress, Internet-Draft, draft-
+              ietf-core-coap-pubsub-18, 28 February 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              coap-pubsub-18>.
+
+   [I-D.ietf-core-coral]
+              Amsüss, C. and T. Fossati, "The Constrained RESTful
+              Application Language (CoRAL)", Work in Progress, Internet-
+              Draft, draft-ietf-core-coral-06, 4 March 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              coral-06>.
+
+   [I-D.ietf-core-dns-over-coap]
+              Lenders, M. S., Amsüss, C., Gündoğan, C., Schmidt, T. C.,
+              and M. Wählisch, "DNS over CoAP (DoC)", Work in Progress,
+              Internet-Draft, draft-ietf-core-dns-over-coap-20, 16
+              September 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-core-dns-over-coap-20>.
+
+   [I-D.ietf-core-oscore-capable-proxies]
+              Tiloca, M. and R. Höglund, "OSCORE-capable Proxies", Work
+              in Progress, Internet-Draft, draft-ietf-core-oscore-
+              capable-proxies-05, 3 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              oscore-capable-proxies-05>.
+
+   [I-D.ietf-cose-cbor-encoded-cert]
+              Mattsson, J. P., Selander, G., Raza, S., Höglund, J., and
+              M. Furuhed, "CBOR Encoded X.509 Certificates (C509
+              Certificates)", Work in Progress, Internet-Draft, draft-
+              ietf-cose-cbor-encoded-cert-15, 18 August 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-cose-
+              cbor-encoded-cert-15>.
+
+   [I-D.tiloca-core-oscore-discovery]
+              Tiloca, M., Amsüss, C., and P. Van der Stok, "Discovery of
+              OSCORE Groups with the CoRE Resource Directory", Work in
+              Progress, Internet-Draft, draft-tiloca-core-oscore-
+              discovery-18, 3 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-tiloca-core-
+              oscore-discovery-18>.
+
+   [MOBICOM99]
+              Ni, S., Tseng, Y., Chen, Y., and J. Sheu, "The Broadcast
+              Storm Problem in a Mobile Ad Hoc Network", Proceedings of
+              the 5th annual ACM/IEEE international conference on Mobile
+              computing and networking , August 1999,
+              <https://people.eecs.berkeley.edu/~culler/cs294-
+              f03/papers/bcast-storm.pdf>.
+
+   [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk, "Internet X.509 Public Key
+              Infrastructure Certificate and Certificate Revocation List
+              (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
+              <https://www.rfc-editor.org/rfc/rfc5280>.
+
+   [RFC6690]  Shelby, Z., "Constrained RESTful Environments (CoRE) Link
+              Format", RFC 6690, DOI 10.17487/RFC6690, August 2012,
+              <https://www.rfc-editor.org/rfc/rfc6690>.
+
+   [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
+              (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
+              <https://www.rfc-editor.org/rfc/rfc7519>.
+
+   [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
+              "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
+              May 2018, <https://www.rfc-editor.org/rfc/rfc8392>.
+
+   [RFC9147]  Rescorla, E., Tschofenig, H., and N. Modadugu, "The
+              Datagram Transport Layer Security (DTLS) Protocol Version
+              1.3", RFC 9147, DOI 10.17487/RFC9147, April 2022,
+              <https://www.rfc-editor.org/rfc/rfc9147>.
+
+   [RFC9176]  Amsüss, C., Ed., Shelby, Z., Koster, M., Bormann, C., and
+              P. van der Stok, "Constrained RESTful Environments (CoRE)
+              Resource Directory", RFC 9176, DOI 10.17487/RFC9176, April
+              2022, <https://www.rfc-editor.org/rfc/rfc9176>.
+
+   [RFC9200]  Seitz, L., Selander, G., Wahlstroem, E., Erdtman, S., and
+              H. Tschofenig, "Authentication and Authorization for
+              Constrained Environments Using the OAuth 2.0 Framework
+              (ACE-OAuth)", RFC 9200, DOI 10.17487/RFC9200, August 2022,
+              <https://www.rfc-editor.org/rfc/rfc9200>.
+
+Appendix A.  TBD
+
+   TBD
+
+Appendix B.  Document Updates
+
+   This section is to be removed before publishing as an RFC.
+
+B.1.  Version -00
+
+   *  Imported content about proxies from draft-ietf-core-observe-
+      multicast-notifications-12.
+
+Acknowledgments
+
+   The authors sincerely thank Carsten Bormann, Klaus Hartke, Jaime
+   Jiménez, Matthias Kovatsch⁩, John Preuß Mattsson, Jim Schaad, Ludwig
+   Seitz, and Göran Selander for their comments and feedback.
+
+   The work on this document has been partly supported by the Sweden's
+   Innovation Agency VINNOVA and the Celtic-Next projects CRITISEC and
+   CYPRESS; and by the H2020 project SIFIS-Home (Grant agreement
+   952652).
+
+Authors' Addresses
+
+   Marco Tiloca
+   RISE AB
+   Isafjordsgatan 22
+   SE-16440 Stockholm Kista
+   Sweden
+   Email: marco.tiloca@ri.se
+
+
+   Rikard Höglund
+   RISE AB
+   Isafjordsgatan 22
+   SE-16440 Stockholm Kista
+   Sweden
+   Email: rikard.hoglund@ri.se
+
+
+   Christian Amsüss
+   Hollandstr. 12/4
+   1020 Vienna
+   Austria
+   Email: christian@amsuess.com
+
+
+   Francesca Palombini
+   Ericsson AB
+   Torshamnsgatan 23
+   SE-16440 Stockholm Kista
+   Sweden
+   Email: francesca.palombini@ericsson.com
