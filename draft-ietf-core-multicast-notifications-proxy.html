@@ -9,9 +9,11 @@
 <meta content="Rikard Höglund" name="author">
 <meta content="Christian Amsüss" name="author">
 <meta content="Francesca Palombini" name="author">
-<meta content="
-       TBD 
-    " name="description">
+<meta content='
+       The Constrained Application Protocol (CoAP) allows clients to "observe" resources at a server and to receive notifications as unicast responses upon changes of the resource state. Instead of sending a distinct unicast notification to each different client, a server can alternatively send a single notification as a response message over multicast, to all the clients observing the same target resource. When doing so, the security protocol Group Object Security for Constrained RESTful Environments (Group OSCORE) can be used to protect multicast notifications end-to-end between the server and the observer clients. This document describes how multicast notifications can be used in network setups that leverage a proxy, e.g., in order to accommodate clients that are not able to directly listen to multicast traffic. 
+       
+       The present version -00 refers to version -12 of draft-ietf-core-observe-multicast-notifications, which includes content about proxies that is also included in the present document. Such content will be removed from draft-ietf-core-observe-multicast-notifications in its next revision. 
+    ' name="description">
 <meta content="xml2rfc 3.30.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-core-multicast-notifications-proxy-latest" name="ietf.draft">
@@ -1093,7 +1095,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Using Proxies for Observe Notifications as CoAP Multicast Responses</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">TBD<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">The Constrained Application Protocol (CoAP) allows clients to "observe" resources at a server and to receive notifications as unicast responses upon changes of the resource state. Instead of sending a distinct unicast notification to each different client, a server can alternatively send a single notification as a response message over multicast, to all the clients observing the same target resource. When doing so, the security protocol Group Object Security for Constrained RESTful Environments (Group OSCORE) can be used to protect multicast notifications end-to-end between the server and the observer clients. This document describes how multicast notifications can be used in network setups that leverage a proxy, e.g., in order to accommodate clients that are not able to directly listen to multicast traffic.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2"><span class="cref" id="status"></span></p>
+<p id="section-abstract-3">The present version -00 refers to version -12 of draft-ietf-core-observe-multicast-notifications, which includes content about proxies that is also included in the present document. Such content will be removed from draft-ietf-core-observe-multicast-notifications in its next revision.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1210,7 +1214,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TBD<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The Constrained Application Protocol (CoAP) <span>[<a href="#RFC7252" class="cite xref">RFC7252</a>]</span> has been extended with a number of mechanisms, including resource Observation <span>[<a href="#RFC7641" class="cite xref">RFC7641</a>]</span>. This enables CoAP clients to register at a CoAP server as "observers" of a resource, and hence being automatically notified with an unsolicited response upon changes of the resource state.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">CoAP supports group communication <span>[<a href="#I-D.ietf-core-groupcomm-bis" class="cite xref">I-D.ietf-core-groupcomm-bis</a>]</span>, e.g., over IP multicast. This includes support for Observe registration requests over multicast, in order for clients to efficiently register as observers of a resource hosted at multiple servers.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">In a number of use cases, it is conversely desirable that a server sends observe notifications for the same target resource to multiple observers at once. In general, this is beneficial when several CoAP clients observe the same target resource at a CoAP server, and thus they could all be notified at once by means of a single response message.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">To this end, <span>[<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> defines a method that a server can use to deliver observe notifications as CoAP responses addressed to multiple clients, e.g., over IP multicast. Also, it defines how to use the security protocol Group Object Security for Constrained RESTful Environments (Group OSCORE) <span>[<a href="#I-D.ietf-core-oscore-groupcomm" class="cite xref">I-D.ietf-core-oscore-groupcomm</a>]</span> to protect multicast notifications end-to-end between the server and the observer clients.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">This document describes how the method specified in <span>[<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> can be used in network setups that leverage a proxy, e.g., in order to accommodate clients that are not able to directly listen to multicast traffic.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <div id="terminology">
 <section id="section-1.1">
         <h3 id="name-terminology">
@@ -1220,7 +1228,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">TBD<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">Readers are expected to be familiar with terms and concepts described in CoAP <span>[<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>, group communication for CoAP <span>[<a href="#I-D.ietf-core-groupcomm-bis" class="cite xref">I-D.ietf-core-groupcomm-bis</a>]</span>, Observe <span>[<a href="#RFC7641" class="cite xref">RFC7641</a>]</span>, Concise Data Definition Language (CDDL) <span>[<a href="#RFC8610" class="cite xref">RFC8610</a>]</span>, Concise Binary Object Representation (CBOR) <span>[<a href="#RFC8949" class="cite xref">RFC8949</a>]</span>, Object Security for Constrained RESTful Environments (OSCORE) <span>[<a href="#RFC8613" class="cite xref">RFC8613</a>]</span>, Group OSCORE <span>[<a href="#I-D.ietf-core-oscore-groupcomm" class="cite xref">I-D.ietf-core-oscore-groupcomm</a>]</span>, and Constrained Resource Identifiers (CRIs) <span>[<a href="#I-D.ietf-core-href" class="cite xref">I-D.ietf-core-href</a>]</span>.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">Readers are also expected to be familiar with terms and concepts described in <span>[<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>, particularly with the terms "traditional observation", "group observation", "phantom request", and "informative response".<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1362,9 +1371,9 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="I-D.amsuess-core-cachable-oscore">[I-D.amsuess-core-cachable-oscore]</dt>
+<dt id="I-D.ietf-core-cacheable-oscore">[I-D.ietf-core-cacheable-oscore]</dt>
         <dd>
-<span class="refAuthor">Amsüss, C.</span> and <span class="refAuthor">M. Tiloca</span>, <span class="refTitle">"Cacheable OSCORE"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-amsuess-core-cachable-oscore-11</span>, <time datetime="2025-07-06" class="refDate">6 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-amsuess-core-cachable-oscore-11">https://datatracker.ietf.org/doc/html/draft-amsuess-core-cachable-oscore-11</a>&gt;</span>. </dd>
+<span class="refAuthor">Amsüss, C.</span> and <span class="refAuthor">M. Tiloca</span>, <span class="refTitle">"Cacheable OSCORE"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-core-cacheable-oscore-00</span>, <time datetime="2025-09-22" class="refDate">22 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-cacheable-oscore-00">https://datatracker.ietf.org/doc/html/draft-ietf-core-cacheable-oscore-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-core-coap-pubsub">[I-D.ietf-core-coap-pubsub]</dt>
         <dd>
