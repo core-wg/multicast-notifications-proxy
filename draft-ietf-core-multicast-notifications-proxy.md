@@ -94,7 +94,7 @@ informative:
   I-D.ietf-core-coap-pubsub:
   I-D.tiloca-core-oscore-discovery:
   I-D.ietf-core-coral:
-  I-D.amsuess-core-cachable-oscore:
+  I-D.ietf-core-cacheable-oscore:
   I-D.ietf-cose-cbor-encoded-cert:
   I-D.ietf-core-oscore-capable-proxies:
   I-D.ietf-core-dns-over-coap:
@@ -129,18 +129,33 @@ entity:
 
 --- abstract
 
-TBD
+The Constrained Application Protocol (CoAP) allows clients to "observe" resources at a server and to receive notifications as unicast responses upon changes of the resource state. Instead of sending a distinct unicast notification to each different client, a server can alternatively send a single notification as a response message over multicast, to all the clients observing the same target resource. When doing so, the security protocol Group Object Security for Constrained RESTful Environments (Group OSCORE) can be used to protect multicast notifications end-to-end between the server and the observer clients. This document describes how multicast notifications can be used in network setups that leverage a proxy, e.g., in order to accommodate clients that are not able to directly listen to multicast traffic.
+
+[^status]
+
+[^status]:
+The present version -00 refers to version -12 of draft-ietf-core-observe-multicast-notifications, which includes content about proxies that is also included in the present document. Such content will be removed from draft-ietf-core-observe-multicast-notifications in its next revision.
 
 --- middle
 
 # Introduction # {#intro}
 
-TBD
+The Constrained Application Protocol (CoAP) {{RFC7252}} has been extended with a number of mechanisms, including resource Observation {{RFC7641}}. This enables CoAP clients to register at a CoAP server as "observers" of a resource, and hence being automatically notified with an unsolicited response upon changes of the resource state.
+
+CoAP supports group communication {{I-D.ietf-core-groupcomm-bis}}, e.g., over IP multicast. This includes support for Observe registration requests over multicast, in order for clients to efficiently register as observers of a resource hosted at multiple servers.
+
+In a number of use cases, it is conversely desirable that a server sends observe notifications for the same target resource to multiple observers at once. In general, this is beneficial when several CoAP clients observe the same target resource at a CoAP server, and thus they could all be notified at once by means of a single response message.
+
+To this end, {{I-D.ietf-core-observe-multicast-notifications}} defines a method that a server can use to deliver observe notifications as CoAP responses addressed to multiple clients, e.g., over IP multicast. Also, it defines how to use the security protocol Group Object Security for Constrained RESTful Environments (Group OSCORE) {{I-D.ietf-core-oscore-groupcomm}} to protect multicast notifications end-to-end between the server and the observer clients.
+
+This document describes how the method specified in {{I-D.ietf-core-observe-multicast-notifications}} can be used in network setups that leverage a proxy, e.g., in order to accommodate clients that are not able to directly listen to multicast traffic.
 
 ## Terminology ## {#terminology}
 {::boilerplate bcp14-tagged}
 
-TBD
+Readers are expected to be familiar with terms and concepts described in CoAP {{RFC7252}}, group communication for CoAP {{I-D.ietf-core-groupcomm-bis}}, Observe {{RFC7641}}, Concise Data Definition Language (CDDL) {{RFC8610}}, Concise Binary Object Representation (CBOR) {{RFC8949}}, Object Security for Constrained RESTful Environments (OSCORE) {{RFC8613}}, Group OSCORE {{I-D.ietf-core-oscore-groupcomm}}, and Constrained Resource Identifiers (CRIs) {{I-D.ietf-core-href}}.
+
+Readers are also expected to be familiar with terms and concepts described in {{I-D.ietf-core-observe-multicast-notifications}}, particularly with the terms "traditional observation", "group observation", "phantom request", and "informative response".
 
 # TBD
 
