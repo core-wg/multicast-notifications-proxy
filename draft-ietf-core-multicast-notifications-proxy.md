@@ -1040,10 +1040,6 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 
 --- back
 
-# TBD
-
-TBD
-
 # Document Updates # {#sec-document-updates}
 {:removeinrfc}
 
