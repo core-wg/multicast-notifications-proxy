@@ -5,11 +5,11 @@
 CoRE Working Group                                             M. Tiloca
 Internet-Draft                                                R. Höglund
 Intended status: Informational                                   RISE AB
-Expires: 16 April 2026                                         C. Amsüss
+Expires: 17 April 2026                                         C. Amsüss
                                                                         
                                                             F. Palombini
                                                              Ericsson AB
-                                                         13 October 2025
+                                                         14 October 2025
 
 
   Using Proxies for Observe Notifications as CoAP Multicast Responses
@@ -65,7 +65,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 April 2026.
+   This Internet-Draft will expire on 17 April 2026.
 
 Copyright Notice
 
@@ -107,9 +107,8 @@ Table of Contents
    12. References
      12.1.  Normative References
      12.2.  Informative References
-   Appendix A.  TBD
-   Appendix B.  Document Updates
-     B.1.  Version -00
+   Appendix A.  Document Updates
+     A.1.  Version -00
    Acknowledgments
    Authors' Addresses
 
@@ -1714,15 +1713,11 @@ Table of Contents
               1.3", RFC 9147, DOI 10.17487/RFC9147, April 2022,
               <https://www.rfc-editor.org/rfc/rfc9147>.
 
-Appendix A.  TBD
-
-   TBD
-
-Appendix B.  Document Updates
+Appendix A.  Document Updates
 
    This section is to be removed before publishing as an RFC.
 
-B.1.  Version -00
+A.1.  Version -00
 
    *  Imported content about proxies from draft-ietf-core-observe-
       multicast-notifications-12.
