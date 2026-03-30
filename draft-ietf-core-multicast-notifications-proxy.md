@@ -258,7 +258,7 @@ With reference to the method defined in {{Section 8 of -mult-notif}}, this has a
 
 # Example with a Proxy {#intermediaries-example}
 
-This section provides an example when a proxy P is used between the clients and the server. The same assumptions and notation used in {{Section 7 of -mult-notif}} are used for this example. In addition, the proxy has address PRX_ADDR and listens to the port number PRX_PORT.
+This section provides an example where a proxy P is used between the clients and the server. The same assumptions and notation used in {{Section 7 of -mult-notif}} are used for this example. In addition, the proxy has address PRX_ADDR and listens to the port number PRX_PORT.
 
 Unless explicitly indicated, all messages transmitted on the wire are sent over unicast.
 
@@ -370,11 +370,11 @@ C1     C2     P        S
 
 Note that the proxy has all the information to understand the observation request from C2 and can immediately start to serve the still fresh values.
 
-This behavior is mandated by {{Section 5 of -observe}}, i.e., the proxy registers itself only once with the next hop and fans out the notifications it receives to all the registered clients.
+This behavior is mandated by {{Section 5 of -observe}}, i.e., the proxy registers itself only once with the next hop and fans out the notifications that it receives to all the registered clients.
 
 # Example with a Proxy and with Group OSCORE {#intermediaries-example-e2e-security}
 
-This section provides an example when a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.
+This section provides an example where a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.
 
 The same assumptions and notation used in {{Section 10 of -mult-notif}} are used for this example. In addition, the proxy has address PRX_ADDR and listens to the port number PRX_PORT.
 
@@ -387,7 +387,7 @@ C1      C2      P         S
 |       |       |         |
 +-------------->|         |  Token: 0x4a
 | FETCH |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x01; piv: 101; ...}
+|       |       |         |  OSCORE: [kid:0x01, Partial IV:101]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  <Other class U/I options>
@@ -401,7 +401,7 @@ C1      C2      P         S
 |       |       |         |
 |       |       +-------->|  Token: 0x5e
 |       |       | FETCH   |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x01; piv: 101; ...}
+|       |       |         |  OSCORE: [kid:0x01, Partial IV:101]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -425,8 +425,8 @@ C1      C2      P         S
 |       |       | \       |
 |       |       |  `----->|  Token: 0x7b
 |       |       |   FETCH |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x05; piv: 501;
-|       |       |         |           kid context: 0x57ab2e; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:501,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -436,19 +436,19 @@ C1      C2      P         S
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (S steps SN_5 in the Group OSCORE
-|       |       |         |   Security Context : SN_5 <-- 502)
+|       |       |         |   Security Context: SN_5 <-- 502)
 |       |       |         |
 |       |       |         |  (S creates a group observation of /r)
 |       |       |         |
 |       |       |         |
 |       |       |         |  (S increments the observer counter
-|       |       |         |  for the group observation of /r)
+|       |       |         |   for the group observation of /r)
 |       |       |         |
 |       |       |<--------+  Token: 0x5e
-|       |       | 2.05    |  OSCORE: {piv: 301; ...}
+|       |       | 2.05    |  OSCORE: - (empty)
 |       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -476,7 +476,7 @@ C1      C2      P         S
 |       |       |         |  }
 |       |       |         |
 |<--------------+         |  Token: 0x4a
-| 2.05  |       |         |  OSCORE: {piv: 301; ...}
+| 2.05  |       |         |  OSCORE: - (empty)
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload)
@@ -484,8 +484,8 @@ C1      C2      P         S
 |  (#)  |       |         |
 +-------------->|         |  Token: 0x4b
 | FETCH |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x05 ; piv: 501;
-|       |       |         |           kid context: 0x57ab2e; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:501,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  Listen-To-Multicast-Responses: {
@@ -501,7 +501,7 @@ C1      C2      P         S
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (The proxy starts listening to the
 |       |       |         |   GRP_ADDR address and the GRP_PORT port.)
@@ -517,7 +517,7 @@ C1      C2      P         S
 |       |       |         |
 |       +------>|         |  Token: 0x01
 |       | FETCH |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x02; piv: 201; ...}
+|       |       |         |  OSCORE: [kid:0x02, Partial IV:201]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  <Other class U/I options>
@@ -531,7 +531,7 @@ C1      C2      P         S
 |       |       |         |
 |       |       +-------->|  Token: 0x5f
 |       |       | FETCH   |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x02; piv: 201; ...}
+|       |       |         |  OSCORE: [kid:0x02, Partial IV:201]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -543,10 +543,10 @@ C1      C2      P         S
 |       |       |         |  }
 |       |       |         |
 |       |       |         |  (S increments the observer counter
-|       |       |         |  for the group observation of /r)
+|       |       |         |   for the group observation of /r)
 |       |       |         |
 |       |       |<--------+  Token: 0x5f
-|       |       | 2.05    |  OSCORE: {piv: 401; ...}
+|       |       | 2.05    |  OSCORE: - (empty)
 |       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -574,15 +574,15 @@ C1      C2      P         S
 |       |       |         |  }
 |       |       |         |
 |       |<------+         |  Token: 0x01
-|       | 2.05  |         |  OSCORE: {piv: 401; ...}
+|       | 2.05  |         |  OSCORE: - (empty)
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload)
 |       |  (#)  |         |
 |       +------>|         |  Token: 0x02
 |       | FETCH |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x05; piv: 501;
-|       |       |         |           kid context: 57ab2e; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:501,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  Listen-To-Multicast-Responses: {
@@ -598,7 +598,7 @@ C1      C2      P         S
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (The proxy adds C2 to
 |       |       |         |   its list of observers.)
@@ -615,47 +615,49 @@ C1      C2      P         S
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
 |       |       | 2.05    |  Observe: 11
-|       |       |         |  OSCORE: {kid: 0x05; piv: 502; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
 |       |       |         |    2.05 (Content),
-|       |       |         |    Observe: [empty],
+|       |       |         |    Observe: - (empty),
 |       |       |         |    <Other class E options>,
 |       |       |         |    0xff,
 |       |       |         |    Payload: "5678"
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |  (#)  |       |         |
 |<--------------+         |  Token: 0x4b
 | 2.05  |       |         |  Observe: 54123
-|       |       |         |  OSCORE: {kid: 0x05; piv: 502; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV: 502]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
-|       |       |         |  (Same Encrypted_payload and Signature)
+|       |       |         |  (Same Encrypted_payload
+|       |       |         |   and Countersignature)
 |       |  (#)  |         |
 |       |<------+         |  Token: 0x02
 |       | 2.05  |         |  Observe: 54123
-|       |       |         |  OSCORE: {kid: 0x05; piv: 502; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV: 502]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
-|       |       |         |  (Same Encrypted_payload and signature)
+|       |       |         |  (Same Encrypted_payload
+|       |       |         |   and Countersignature)
 |       |       |         |
 
 
 (#)  Sent over unicast, and protected with Group OSCORE end-to-end
      between the server and the clients.
 
-(##) Sent over IP multicast to GROUP_ADDR:GROUP_PORT, and protected
-     with Group OSCORE end-to-end between the server and the clients.
+(##) Sent over IP multicast to GROUP_ADDR:GROUP_PORT, protected
+     end-to-end with Group OSCORE between the server and the clients.
 ~~~~~~~~~~~
 {: #example-proxy-oscore title="Example of Group Observation with a Proxy and Group OSCORE"}
 
-Unlike in the unprotected example in {{intermediaries-example}}, the proxy does *not* have all the information to perform request deduplication and can only recognize the identical request once the client sends the ticket request.
+Unlike in the unprotected example in {{intermediaries-example}}, the proxy does not have all the information to perform request deduplication and can only recognize the identical request once the client sends the ticket request.
 
 # Example with a Proxy and with Deterministic Requests {#intermediaries-example-e2e-security-det}
 
-This section provides an example when a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.
+This section provides an example where a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.
 
 In addition, the phantom request is especially a Deterministic Request (see {{Section D of -mult-notif}}), which is protected with the pairwise mode of Group OSCORE as defined in {{-cacheable-oscore}}.
 
@@ -673,17 +675,17 @@ Also in this case, the security identity associated with the sender of any Deter
 
 The example provided in this appendix as reflected by the message exchange shown in {{intermediaries-example-e2e-security-det-exchange}} assumes the following.
 
-1. The OSCORE group supports Deterministic Requests. Thus, the server creates the phantom request as a Deterministic Request {{-cacheable-oscore}}, stores it locally as one of its issued phantom requests, and starts the group observation.
+1. The OSCORE group supports Deterministic Requests. Thus, the server creates the phantom request as a Deterministic Request {{-cacheable-oscore}}, stores it locally as one of its issued phantom requests, and starts the corresponding group observation.
 
-2. The server makes the phantom request available through other means, e.g., a pub-sub broker, together with the transport-specific information for listening to multicast notifications bound to the phantom request (see {{Section A of -mult-notif}}).
+2. The server makes the phantom request available through other means (e.g., a pub-sub broker), together with the transport-specific information for listening to multicast notifications bound to the phantom request (see {{Section A of -mult-notif}}).
 
 3. Since the phantom request is a Deterministic Request, the server can more efficiently make it available in its smaller, plain version. The clients can obtain it from the particular alternative source and protect it as per {{Section 3 of -cacheable-oscore}}, thus all computing the same Deterministic Request to be used as phantom observation request.
 
-4. If the client does not rely on a proxy between itself and the server, it simply sets the group observation and starts listening to multicast notifications. Building on Step 2 above, the same would happen if the phantom request was not specifically a Deterministic Request.
+4. If a client does not rely on a proxy between itself and the server, it simply sets the group observation and starts listening to multicast notifications. Building on Step 2 above, the same would happen if the phantom request was not specifically a Deterministic Request.
 
-5. If the client relies on a proxy between itself and the server, it uses the phantom request as a ticket request (see {{intermediaries-e2e-security}}). However, unlike the case considered in {{intermediaries-e2e-security}} where the ticket request is not a Deterministic Request, the client does not include a Listen-to-Multicast-Responses Option in the phantom request sent to the proxy.
+5. If a client relies on a proxy between itself and the server, it uses the phantom request as a ticket request (see {{intermediaries-e2e-security}}). However, unlike for the case in {{intermediaries-e2e-security}} where the ticket request is not a Deterministic Request, the client does not include a Listen-to-Multicast-Responses Option in the phantom request sent to the proxy.
 
-6. Unlike for the case considered in {{intermediaries-e2e-security}}, here the proxy does not know that the request is exactly a ticket request for subscribing to multicast notifications. Thus, the proxy simply forwards the ticket request to the server like it normally would.
+6. Unlike for the case in {{intermediaries-e2e-security}}, the proxy does not know that the request is exactly a ticket request for subscribing to multicast notifications. Thus, the proxy simply forwards the ticket request to the server like it normally would.
 
 7. The server receives the ticket request, which is a deviation from the case where the ticket request is not a Deterministic Request and stops at the proxy (see {{intermediaries-e2e-security}}). Then, the server recognizes the phantom request among the stored ones, through a byte-by-byte comparison of the incoming message minus the transport-related fields (see {{Section D of -mult-notif}}). Consequently, the server does not perform any Group OSCORE processing on it.
 
@@ -691,9 +693,9 @@ The example provided in this appendix as reflected by the message exchange shown
 
    Note that the phantom request can be omitted, since it is the deterministic phantom request from the client, and thus "in terms of transport-independent information, identical to the registration request from the client" (see {{Section 4.2 of -mult-notif}}).
 
-9. From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications. If the informative response includes a latest notification, the proxy caches it and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done it already and the request from the client was Confirmable).
+9. From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications. If the informative response includes a latest notification, the proxy caches it and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done it already and the request from the client was a Confirmable message).
 
-10. Like in the case with a non-deterministic phantom request considered in {{intermediaries-e2e-security}}, the proxy fans out the multicast notifications to the origin clients as they come. Also, as new clients following the first one contact the proxy, the latter does not have to contact the server again as in {{intermediaries-e2e-security}}, since the deterministic phantom request would produce a cache hit as per {{-cacheable-oscore}}. Thus, the proxy can serve such clients with the latest fresh multicast notification from its cache.
+10. Like for the case with a non-deterministic phantom request in {{intermediaries-e2e-security}}, the proxy fans out the multicast notifications to the origin clients as they come. Also, as new clients following the first one contact the proxy, the latter does not have to contact the server again as in {{intermediaries-e2e-security}}, since the deterministic phantom request would produce a cache hit as per {{-cacheable-oscore}}. Thus, the proxy can serve such clients with the latest fresh multicast notification from its cache.
 
 ## Message Exchange {#intermediaries-example-e2e-security-det-exchange}
 
@@ -733,8 +735,8 @@ C1      C2      P         S
 |       |       |  `----->|  Token: 0x7b
 |       |       |   FETCH |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x09 ; piv: 0 ;
-|       |       |         |           kid context: 0x57ab2e ; ... }
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -757,8 +759,8 @@ C1      C2      P         S
 +-------------->|         |  Token: 0x4a
 | FETCH |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x09 ; piv: 0 ;
-|       |       |         |           kid context: 0x57ab2e ; ... }
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -772,8 +774,8 @@ C1      C2      P         S
 |       |       +-------->|  Token: 0x5e
 |       |       | FETCH   |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x09 ; piv: 0 ;
-|       |       |         |           kid context: 0x57ab2e ; ... }
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -792,16 +794,16 @@ C1      C2      P         S
 |       |       |         |
 |       |       |         |  0x45 (2.05 Content)
 |       |       |         |  Observe: 10
-|       |       |         |  OSCORE: {kid: 0x05 ; piv: 501 ; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:501]
 |       |       |         |  Max-Age: 3000
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
-|       |       |         |    Observe: [empty],
+|       |       |         |    Observe: - (empty),
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (S increments the observer counter
 |       |       |         |  for the group observation of /r)
@@ -829,21 +831,21 @@ C1      C2      P         S
 |       |       |         |   0x7b at GRP_ADDR:GRP_PORT)
 |       |       |         |
 |       |       |         |  (P extracts the "last notification"
-|       |       |         |   response, caches it and forwards
+|       |       |         |   response, caches it, and forwards
 |       |       |         |   it back to C1)
 |       |       |         |
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  Observe: 54120
-|       |       |         |  OSCORE: {kid: 0x05 ; piv: 501 ; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:501]
 |       |       |         |  Max-Age: 2995
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
-|       |       |         |    Observe: [empty],
+|       |       |         |    Observe: - (empty),
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 
 ...    ...     ...      ...
@@ -854,8 +856,8 @@ C1      C2      P         S
 |       +------>|         |  Token: 0x01
 |       | FETCH |         |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: {kid: 0x09 ; piv: 0 ;
-|       |       |         |           kid context: 0x57ab2e; ...}
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -870,16 +872,16 @@ C1      C2      P         S
 |       |       |         |
 |       |<------+         |  Token: 0x01
 |       | 2.05  |         |  Observe: 54120
-|       |       |         |  OSCORE: {kid: 0x05 ; piv: 501 ; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:501]
 |       |       |         |  Max-Age: 1800
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
-|       |       |         |    Observe: [empty],
+|       |       |         |    Observe: - (empty),
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 
 ...    ...     ...      ...
@@ -891,41 +893,43 @@ C1      C2      P         S
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
 |       |       | 2.05    |  Observe: 11
-|       |       |         |  OSCORE: {kid: 0x05; piv: 502 ; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
-|       |       |         |    Observe: [empty],
+|       |       |         |    Observe: - (empty),
 |       |       |         |    <Other class E options>,
 |       |       |         |    0xff,
 |       |       |         |    Payload: "5678"
 |       |       |         |  }
-|       |       |         |  <Signature>
+|       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (P updates its cache entry
 |       |       |         |   with this notification)
 |       |       |         |
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  Observe: 54123
-|       |       |         |  OSCORE: {kid: 0x05; piv: 502 ; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
-|       |       |         |  (Same Encrypted_payload and signature)
+|       |       |         |  (Same Encrypted_payload
+|       |       |         |   and Countersignature)
 |       |       |         |
 |       |<------+         |  Token: 0x01
 |       | 2.05  |         |  Observe: 54123
-|       |       |         |  OSCORE: {kid: 0x05; piv: 502 ; ...}
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
-|       |       |         |  (Same Encrypted_payload and signature)
+|       |       |         |  (Same Encrypted_payload
+|       |       |         |   and Countersignature)
 |       |       |         |
 
 
 (#)  Sent over unicast and unprotected.
 
-(##) Sent over IP multicast to GROUP_ADDR:GROUP_PORT and protected
-     with Group OSCORE end-to-end between the server and the clients.
+(##) Sent over IP multicast to GROUP_ADDR:GROUP_PORT, protected
+     end-to-end with Group OSCORE between the server and the clients.
 ~~~~~~~~~~~
 {: #example-proxy-oscore-det-request title="Example of Group Observation with a Proxy and Group OSCORE, where the Phantom Request is a Deterministic Request"}
 
@@ -1045,6 +1049,8 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 {:removeinrfc}
 
 ## Version -00 to -01 ## {#sec-00-01}
+
+* Fixes in the examples of message exchanges.
 
 * Clarifications and editorial improvements.
 
