@@ -1501,7 +1501,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
       <h2 id="name-example-with-a-proxy">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-example-with-a-proxy" class="section-name selfRef">Example with a Proxy</a>
       </h2>
-<p id="section-6-1">This section provides an example when a proxy P is used between the clients and the server. The same assumptions and notation used in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-7" class="relref">Section 7</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> are used for this example. In addition, the proxy has address PRX_ADDR and listens to the port number PRX_PORT.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This section provides an example where a proxy P is used between the clients and the server. The same assumptions and notation used in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-7" class="relref">Section 7</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> are used for this example. In addition, the proxy has address PRX_ADDR and listens to the port number PRX_PORT.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <p id="section-6-2">Unless explicitly indicated, all messages transmitted on the wire are sent over unicast.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <span id="name-example-of-group-observatio"></span><div id="example-proxy-no-oscore">
 <figure id="figure-1">
@@ -1783,7 +1783,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
         </figcaption></figure>
 </div>
 <p id="section-6-4">Note that the proxy has all the information to understand the observation request from C2 and can immediately start to serve the still fresh values.<a href="#section-6-4" class="pilcrow">¶</a></p>
-<p id="section-6-5">This behavior is mandated by <span><a href="https://rfc-editor.org/rfc/rfc7641#section-5" class="relref">Section 5</a> of [<a href="#RFC7641" class="cite xref">RFC7641</a>]</span>, i.e., the proxy registers itself only once with the next hop and fans out the notifications it receives to all the registered clients.<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-6-5">This behavior is mandated by <span><a href="https://rfc-editor.org/rfc/rfc7641#section-5" class="relref">Section 5</a> of [<a href="#RFC7641" class="cite xref">RFC7641</a>]</span>, i.e., the proxy registers itself only once with the next hop and fans out the notifications that it receives to all the registered clients.<a href="#section-6-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="intermediaries-example-e2e-security">
@@ -1791,35 +1791,35 @@ When no interested origin clients remain, the proxy can simply forget about bein
       <h2 id="name-example-with-a-proxy-and-wi">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-example-with-a-proxy-and-wi" class="section-name selfRef">Example with a Proxy and with Group OSCORE</a>
       </h2>
-<p id="section-7-1">This section provides an example when a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">This section provides an example where a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">The same assumptions and notation used in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-10" class="relref">Section 10</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> are used for this example. In addition, the proxy has address PRX_ADDR and listens to the port number PRX_PORT.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">Unless explicitly indicated, all messages transmitted on the wire are sent over unicast and protected with OSCORE end-to-end between a client and the server.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <span id="name-example-of-group-observation"></span><div id="example-proxy-oscore">
 <figure id="figure-2">
         <div id="section-7-4.1">
           <div class="alignLeft art-svg artwork" id="section-7-4.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="4304" width="576" viewBox="0 0 576 4304" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="4336" width="576" viewBox="0 0 576 4336" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
               <path d="M 8,48 L 8,2096" fill="none" stroke="black"></path>
               <path d="M 8,2160 L 8,3600" fill="none" stroke="black"></path>
-              <path d="M 8,3664 L 8,4176" fill="none" stroke="black"></path>
+              <path d="M 8,3664 L 8,4208" fill="none" stroke="black"></path>
               <path d="M 72,48 L 72,88" fill="none" stroke="black"></path>
               <path d="M 72,104 L 72,1528" fill="none" stroke="black"></path>
               <path d="M 72,1544 L 72,1640" fill="none" stroke="black"></path>
               <path d="M 72,1656 L 72,2072" fill="none" stroke="black"></path>
               <path d="M 72,2160 L 72,3600" fill="none" stroke="black"></path>
               <path d="M 72,3664 L 72,3960" fill="none" stroke="black"></path>
-              <path d="M 72,3976 L 72,4176" fill="none" stroke="black"></path>
+              <path d="M 72,3976 L 72,4208" fill="none" stroke="black"></path>
               <path d="M 136,48 L 136,2096" fill="none" stroke="black"></path>
               <path d="M 136,2160 L 136,3600" fill="none" stroke="black"></path>
-              <path d="M 136,3664 L 136,4176" fill="none" stroke="black"></path>
+              <path d="M 136,3664 L 136,4208" fill="none" stroke="black"></path>
               <path d="M 216,48 L 216,2096" fill="none" stroke="black"></path>
               <path d="M 216,2160 L 216,3600" fill="none" stroke="black"></path>
-              <path d="M 216,3664 L 216,4176" fill="none" stroke="black"></path>
+              <path d="M 216,3664 L 216,4208" fill="none" stroke="black"></path>
               <path d="M 8,96 L 128,96" fill="none" stroke="black"></path>
               <path d="M 136,320 L 208,320" fill="none" stroke="black"></path>
               <path d="M 160,656 L 216,656" fill="none" stroke="black"></path>
               <path d="M 160,704 L 208,704" fill="none" stroke="black"></path>
-              <path d="M 440,960 L 456,960" fill="none" stroke="black"></path>
+              <path d="M 432,960 L 448,960" fill="none" stroke="black"></path>
               <path d="M 144,1088 L 216,1088" fill="none" stroke="black"></path>
               <path d="M 16,1536 L 136,1536" fill="none" stroke="black"></path>
               <path d="M 8,1648 L 128,1648" fill="none" stroke="black"></path>
@@ -1832,10 +1832,10 @@ When no interested origin clients remain, the proxy can simply forget about bein
               <path d="M 80,3568 L 136,3568" fill="none" stroke="black"></path>
               <path d="M 144,3744 L 216,3744" fill="none" stroke="black"></path>
               <path d="M 16,3968 L 136,3968" fill="none" stroke="black"></path>
-              <path d="M 80,4080 L 136,4080" fill="none" stroke="black"></path>
+              <path d="M 80,4096 L 136,4096" fill="none" stroke="black"></path>
               <path d="M 148,680 L 160,704" fill="none" stroke="black"></path>
               <path d="M 148,680 L 160,656" fill="none" stroke="black"></path>
-              <polygon class="arrowhead" points="448,960 436,954.4 436,965.6" fill="black" transform="rotate(180,440,960)"></polygon>
+              <polygon class="arrowhead" points="440,960 428,954.4 428,965.6" fill="black" transform="rotate(180,432,960)"></polygon>
               <polygon class="arrowhead" points="216,2400 204,2394.4 204,2405.6" fill="black" transform="rotate(0,208,2400)"></polygon>
               <polygon class="arrowhead" points="216,704 204,698.4 204,709.6" fill="black" transform="rotate(0,208,704)"></polygon>
               <polygon class="arrowhead" points="216,320 204,314.4 204,325.6" fill="black" transform="rotate(0,208,320)"></polygon>
@@ -1846,7 +1846,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
               <polygon class="arrowhead" points="136,2176 124,2170.4 124,2181.6" fill="black" transform="rotate(0,128,2176)"></polygon>
               <polygon class="arrowhead" points="136,1648 124,1642.4 124,1653.6" fill="black" transform="rotate(0,128,1648)"></polygon>
               <polygon class="arrowhead" points="136,96 124,90.4 124,101.6" fill="black" transform="rotate(0,128,96)"></polygon>
-              <polygon class="arrowhead" points="88,4080 76,4074.4 76,4085.6" fill="black" transform="rotate(180,80,4080)"></polygon>
+              <polygon class="arrowhead" points="88,4096 76,4090.4 76,4101.6" fill="black" transform="rotate(180,80,4096)"></polygon>
               <polygon class="arrowhead" points="88,3568 76,3562.4 76,3573.6" fill="black" transform="rotate(180,80,3568)"></polygon>
               <polygon class="arrowhead" points="88,3104 76,3098.4 76,3109.6" fill="black" transform="rotate(180,80,3104)"></polygon>
               <polygon class="arrowhead" points="24,3968 12,3962.4 12,3973.6" fill="black" transform="rotate(180,16,3968)"></polygon>
@@ -1872,11 +1872,9 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="116">0</text>
                 <text x="364" y="116">(register)</text>
                 <text x="264" y="132">OSCORE:</text>
-                <text x="320" y="132">{kid:</text>
-                <text x="368" y="132">0x01;</text>
-                <text x="412" y="132">piv:</text>
-                <text x="452" y="132">101;</text>
-                <text x="492" y="132">...}</text>
+                <text x="340" y="132">[kid:0x01,</text>
+                <text x="416" y="132">Partial</text>
+                <text x="480" y="132">IV:101]</text>
                 <text x="272" y="148">Uri-Host:</text>
                 <text x="380" y="148">"sensor.example"</text>
                 <text x="288" y="164">Proxy-Scheme:</text>
@@ -1907,11 +1905,9 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="340">0</text>
                 <text x="364" y="340">(register)</text>
                 <text x="264" y="356">OSCORE:</text>
-                <text x="320" y="356">{kid:</text>
-                <text x="368" y="356">0x01;</text>
-                <text x="412" y="356">piv:</text>
-                <text x="452" y="356">101;</text>
-                <text x="492" y="356">...}</text>
+                <text x="340" y="356">[kid:0x01,</text>
+                <text x="416" y="356">Partial</text>
+                <text x="480" y="356">IV:101]</text>
                 <text x="272" y="372">Uri-Host:</text>
                 <text x="380" y="372">"sensor.example"</text>
                 <text x="260" y="388">&lt;Other</text>
@@ -1966,14 +1962,11 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="724">0</text>
                 <text x="364" y="724">(register)</text>
                 <text x="264" y="740">OSCORE:</text>
-                <text x="320" y="740">{kid:</text>
-                <text x="368" y="740">0x05;</text>
-                <text x="412" y="740">piv:</text>
-                <text x="452" y="740">501;</text>
+                <text x="340" y="740">[kid:0x05,</text>
+                <text x="416" y="740">Partial</text>
+                <text x="480" y="740">IV:501,</text>
                 <text x="320" y="756">kid</text>
-                <text x="372" y="756">context:</text>
-                <text x="448" y="756">0x57ab2e;</text>
-                <text x="508" y="756">...}</text>
+                <text x="408" y="756">context:0x57ab2e]</text>
                 <text x="272" y="772">Uri-Host:</text>
                 <text x="380" y="772">"sensor.example"</text>
                 <text x="260" y="788">&lt;Other</text>
@@ -1995,7 +1988,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="360" y="884">E</text>
                 <text x="404" y="884">options&gt;</text>
                 <text x="240" y="900">}</text>
-                <text x="280" y="916">&lt;Signature&gt;</text>
+                <text x="308" y="916">&lt;Countersignature&gt;</text>
                 <text x="244" y="948">(S</text>
                 <text x="280" y="948">steps</text>
                 <text x="324" y="948">SN_5</text>
@@ -2004,10 +1997,9 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="424" y="948">Group</text>
                 <text x="476" y="948">OSCORE</text>
                 <text x="276" y="964">Security</text>
-                <text x="344" y="964">Context</text>
-                <text x="384" y="964">:</text>
-                <text x="412" y="964">SN_5</text>
-                <text x="484" y="964">502)</text>
+                <text x="348" y="964">Context:</text>
+                <text x="404" y="964">SN_5</text>
+                <text x="476" y="964">502)</text>
                 <text x="244" y="996">(S</text>
                 <text x="288" y="996">creates</text>
                 <text x="328" y="996">a</text>
@@ -2020,19 +2012,18 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="360" y="1044">the</text>
                 <text x="412" y="1044">observer</text>
                 <text x="480" y="1044">counter</text>
-                <text x="248" y="1060">for</text>
-                <text x="280" y="1060">the</text>
-                <text x="320" y="1060">group</text>
-                <text x="392" y="1060">observation</text>
-                <text x="452" y="1060">of</text>
-                <text x="480" y="1060">/r)</text>
+                <text x="256" y="1060">for</text>
+                <text x="288" y="1060">the</text>
+                <text x="328" y="1060">group</text>
+                <text x="400" y="1060">observation</text>
+                <text x="460" y="1060">of</text>
+                <text x="488" y="1060">/r)</text>
                 <text x="260" y="1092">Token:</text>
                 <text x="308" y="1092">0x5e</text>
                 <text x="164" y="1108">2.05</text>
                 <text x="264" y="1108">OSCORE:</text>
-                <text x="320" y="1108">{piv:</text>
-                <text x="364" y="1108">301;</text>
-                <text x="404" y="1108">...}</text>
+                <text x="304" y="1108">-</text>
+                <text x="344" y="1108">(empty)</text>
                 <text x="268" y="1124">Max-Age:</text>
                 <text x="312" y="1124">0</text>
                 <text x="260" y="1140">&lt;Other</text>
@@ -2111,9 +2102,8 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="308" y="1540">0x4a</text>
                 <text x="36" y="1556">2.05</text>
                 <text x="264" y="1556">OSCORE:</text>
-                <text x="320" y="1556">{piv:</text>
-                <text x="364" y="1556">301;</text>
-                <text x="404" y="1556">...}</text>
+                <text x="304" y="1556">-</text>
+                <text x="344" y="1556">(empty)</text>
                 <text x="260" y="1572">&lt;Other</text>
                 <text x="312" y="1572">class</text>
                 <text x="352" y="1572">U/I</text>
@@ -2129,15 +2119,11 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="1668">0</text>
                 <text x="364" y="1668">(register)</text>
                 <text x="264" y="1684">OSCORE:</text>
-                <text x="320" y="1684">{kid:</text>
-                <text x="364" y="1684">0x05</text>
-                <text x="392" y="1684">;</text>
-                <text x="420" y="1684">piv:</text>
-                <text x="460" y="1684">501;</text>
+                <text x="340" y="1684">[kid:0x05,</text>
+                <text x="416" y="1684">Partial</text>
+                <text x="480" y="1684">IV:501,</text>
                 <text x="320" y="1700">kid</text>
-                <text x="372" y="1700">context:</text>
-                <text x="448" y="1700">0x57ab2e;</text>
-                <text x="508" y="1700">...}</text>
+                <text x="408" y="1700">context:0x57ab2e]</text>
                 <text x="272" y="1716">Uri-Host:</text>
                 <text x="380" y="1716">"sensor.example"</text>
                 <text x="288" y="1732">Proxy-Scheme:</text>
@@ -2167,7 +2153,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="360" y="1924">E</text>
                 <text x="404" y="1924">options&gt;</text>
                 <text x="240" y="1940">}</text>
-                <text x="280" y="1956">&lt;Signature&gt;</text>
+                <text x="308" y="1956">&lt;Countersignature&gt;</text>
                 <text x="252" y="1988">(The</text>
                 <text x="296" y="1988">proxy</text>
                 <text x="348" y="1988">starts</text>
@@ -2202,11 +2188,9 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="2196">0</text>
                 <text x="364" y="2196">(register)</text>
                 <text x="264" y="2212">OSCORE:</text>
-                <text x="320" y="2212">{kid:</text>
-                <text x="368" y="2212">0x02;</text>
-                <text x="412" y="2212">piv:</text>
-                <text x="452" y="2212">201;</text>
-                <text x="492" y="2212">...}</text>
+                <text x="340" y="2212">[kid:0x02,</text>
+                <text x="416" y="2212">Partial</text>
+                <text x="480" y="2212">IV:201]</text>
                 <text x="272" y="2228">Uri-Host:</text>
                 <text x="380" y="2228">"sensor.example"</text>
                 <text x="288" y="2244">Proxy-Scheme:</text>
@@ -2237,11 +2221,9 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="2420">0</text>
                 <text x="364" y="2420">(register)</text>
                 <text x="264" y="2436">OSCORE:</text>
-                <text x="320" y="2436">{kid:</text>
-                <text x="368" y="2436">0x02;</text>
-                <text x="412" y="2436">piv:</text>
-                <text x="452" y="2436">201;</text>
-                <text x="492" y="2436">...}</text>
+                <text x="340" y="2436">[kid:0x02,</text>
+                <text x="416" y="2436">Partial</text>
+                <text x="480" y="2436">IV:201]</text>
                 <text x="272" y="2452">Uri-Host:</text>
                 <text x="380" y="2452">"sensor.example"</text>
                 <text x="260" y="2468">&lt;Other</text>
@@ -2268,19 +2250,18 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="360" y="2612">the</text>
                 <text x="412" y="2612">observer</text>
                 <text x="480" y="2612">counter</text>
-                <text x="248" y="2628">for</text>
-                <text x="280" y="2628">the</text>
-                <text x="320" y="2628">group</text>
-                <text x="392" y="2628">observation</text>
-                <text x="452" y="2628">of</text>
-                <text x="480" y="2628">/r)</text>
+                <text x="256" y="2628">for</text>
+                <text x="288" y="2628">the</text>
+                <text x="328" y="2628">group</text>
+                <text x="400" y="2628">observation</text>
+                <text x="460" y="2628">of</text>
+                <text x="488" y="2628">/r)</text>
                 <text x="260" y="2660">Token:</text>
                 <text x="308" y="2660">0x5f</text>
                 <text x="164" y="2676">2.05</text>
                 <text x="264" y="2676">OSCORE:</text>
-                <text x="320" y="2676">{piv:</text>
-                <text x="364" y="2676">401;</text>
-                <text x="404" y="2676">...}</text>
+                <text x="304" y="2676">-</text>
+                <text x="344" y="2676">(empty)</text>
                 <text x="268" y="2692">Max-Age:</text>
                 <text x="312" y="2692">0</text>
                 <text x="260" y="2708">&lt;Other</text>
@@ -2359,9 +2340,8 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="308" y="3108">0x01</text>
                 <text x="100" y="3124">2.05</text>
                 <text x="264" y="3124">OSCORE:</text>
-                <text x="320" y="3124">{piv:</text>
-                <text x="364" y="3124">401;</text>
-                <text x="404" y="3124">...}</text>
+                <text x="304" y="3124">-</text>
+                <text x="344" y="3124">(empty)</text>
                 <text x="260" y="3140">&lt;Other</text>
                 <text x="312" y="3140">class</text>
                 <text x="352" y="3140">U/I</text>
@@ -2377,14 +2357,11 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="312" y="3220">0</text>
                 <text x="364" y="3220">(register)</text>
                 <text x="264" y="3236">OSCORE:</text>
-                <text x="320" y="3236">{kid:</text>
-                <text x="368" y="3236">0x05;</text>
-                <text x="412" y="3236">piv:</text>
-                <text x="452" y="3236">501;</text>
+                <text x="340" y="3236">[kid:0x05,</text>
+                <text x="416" y="3236">Partial</text>
+                <text x="480" y="3236">IV:501,</text>
                 <text x="320" y="3252">kid</text>
-                <text x="372" y="3252">context:</text>
-                <text x="440" y="3252">57ab2e;</text>
-                <text x="492" y="3252">...}</text>
+                <text x="408" y="3252">context:0x57ab2e]</text>
                 <text x="272" y="3268">Uri-Host:</text>
                 <text x="380" y="3268">"sensor.example"</text>
                 <text x="288" y="3284">Proxy-Scheme:</text>
@@ -2414,7 +2391,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="360" y="3476">E</text>
                 <text x="404" y="3476">options&gt;</text>
                 <text x="240" y="3492">}</text>
-                <text x="280" y="3508">&lt;Signature&gt;</text>
+                <text x="308" y="3508">&lt;Countersignature&gt;</text>
                 <text x="252" y="3540">(The</text>
                 <text x="296" y="3540">proxy</text>
                 <text x="340" y="3540">adds</text>
@@ -2445,11 +2422,9 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="268" y="3764">Observe:</text>
                 <text x="316" y="3764">11</text>
                 <text x="264" y="3780">OSCORE:</text>
-                <text x="320" y="3780">{kid:</text>
-                <text x="368" y="3780">0x05;</text>
-                <text x="412" y="3780">piv:</text>
-                <text x="452" y="3780">502;</text>
-                <text x="492" y="3780">...}</text>
+                <text x="340" y="3780">[kid:0x05,</text>
+                <text x="416" y="3780">Partial</text>
+                <text x="480" y="3780">IV:502]</text>
                 <text x="260" y="3796">&lt;Other</text>
                 <text x="312" y="3796">class</text>
                 <text x="352" y="3796">U/I</text>
@@ -2460,7 +2435,8 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="268" y="3844">2.05</text>
                 <text x="332" y="3844">(Content),</text>
                 <text x="284" y="3860">Observe:</text>
-                <text x="356" y="3860">[empty],</text>
+                <text x="328" y="3860">-</text>
+                <text x="372" y="3860">(empty),</text>
                 <text x="276" y="3876">&lt;Other</text>
                 <text x="328" y="3876">class</text>
                 <text x="360" y="3876">E</text>
@@ -2469,7 +2445,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="284" y="3908">Payload:</text>
                 <text x="348" y="3908">"5678"</text>
                 <text x="240" y="3924">}</text>
-                <text x="280" y="3940">&lt;Signature&gt;</text>
+                <text x="308" y="3940">&lt;Countersignature&gt;</text>
                 <text x="40" y="3956">(#)</text>
                 <text x="260" y="3972">Token:</text>
                 <text x="308" y="3972">0x4b</text>
@@ -2477,11 +2453,10 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="268" y="3988">Observe:</text>
                 <text x="328" y="3988">54123</text>
                 <text x="264" y="4004">OSCORE:</text>
-                <text x="320" y="4004">{kid:</text>
-                <text x="368" y="4004">0x05;</text>
-                <text x="412" y="4004">piv:</text>
-                <text x="452" y="4004">502;</text>
-                <text x="492" y="4004">...}</text>
+                <text x="340" y="4004">[kid:0x05,</text>
+                <text x="416" y="4004">Partial</text>
+                <text x="464" y="4004">IV:</text>
+                <text x="500" y="4004">502]</text>
                 <text x="260" y="4020">&lt;Other</text>
                 <text x="312" y="4020">class</text>
                 <text x="352" y="4020">U/I</text>
@@ -2489,64 +2464,62 @@ When no interested origin clients remain, the proxy can simply forget about bein
                 <text x="252" y="4036">0xff</text>
                 <text x="256" y="4052">(Same</text>
                 <text x="352" y="4052">Encrypted_payload</text>
-                <text x="440" y="4052">and</text>
-                <text x="500" y="4052">Signature)</text>
-                <text x="104" y="4068">(#)</text>
-                <text x="260" y="4084">Token:</text>
-                <text x="308" y="4084">0x02</text>
-                <text x="100" y="4100">2.05</text>
-                <text x="268" y="4100">Observe:</text>
-                <text x="328" y="4100">54123</text>
-                <text x="264" y="4116">OSCORE:</text>
-                <text x="320" y="4116">{kid:</text>
-                <text x="368" y="4116">0x05;</text>
-                <text x="412" y="4116">piv:</text>
-                <text x="452" y="4116">502;</text>
-                <text x="492" y="4116">...}</text>
-                <text x="260" y="4132">&lt;Other</text>
-                <text x="312" y="4132">class</text>
-                <text x="352" y="4132">U/I</text>
-                <text x="404" y="4132">options&gt;</text>
-                <text x="252" y="4148">0xff</text>
-                <text x="256" y="4164">(Same</text>
-                <text x="352" y="4164">Encrypted_payload</text>
-                <text x="440" y="4164">and</text>
-                <text x="500" y="4164">signature)</text>
-                <text x="16" y="4228">(#)</text>
-                <text x="60" y="4228">Sent</text>
-                <text x="100" y="4228">over</text>
-                <text x="156" y="4228">unicast,</text>
-                <text x="208" y="4228">and</text>
-                <text x="264" y="4228">protected</text>
-                <text x="324" y="4228">with</text>
-                <text x="368" y="4228">Group</text>
-                <text x="420" y="4228">OSCORE</text>
-                <text x="492" y="4228">end-to-end</text>
-                <text x="72" y="4244">between</text>
-                <text x="120" y="4244">the</text>
-                <text x="164" y="4244">server</text>
-                <text x="208" y="4244">and</text>
-                <text x="240" y="4244">the</text>
-                <text x="292" y="4244">clients.</text>
-                <text x="20" y="4276">(##)</text>
-                <text x="60" y="4276">Sent</text>
-                <text x="100" y="4276">over</text>
-                <text x="132" y="4276">IP</text>
-                <text x="184" y="4276">multicast</text>
-                <text x="236" y="4276">to</text>
-                <text x="340" y="4276">GROUP_ADDR:GROUP_PORT,</text>
-                <text x="448" y="4276">and</text>
-                <text x="504" y="4276">protected</text>
-                <text x="60" y="4292">with</text>
-                <text x="104" y="4292">Group</text>
-                <text x="156" y="4292">OSCORE</text>
-                <text x="228" y="4292">end-to-end</text>
-                <text x="304" y="4292">between</text>
-                <text x="352" y="4292">the</text>
-                <text x="396" y="4292">server</text>
-                <text x="440" y="4292">and</text>
-                <text x="472" y="4292">the</text>
-                <text x="524" y="4292">clients.</text>
+                <text x="256" y="4068">and</text>
+                <text x="344" y="4068">Countersignature)</text>
+                <text x="104" y="4084">(#)</text>
+                <text x="260" y="4100">Token:</text>
+                <text x="308" y="4100">0x02</text>
+                <text x="100" y="4116">2.05</text>
+                <text x="268" y="4116">Observe:</text>
+                <text x="328" y="4116">54123</text>
+                <text x="264" y="4132">OSCORE:</text>
+                <text x="340" y="4132">[kid:0x05,</text>
+                <text x="416" y="4132">Partial</text>
+                <text x="464" y="4132">IV:</text>
+                <text x="500" y="4132">502]</text>
+                <text x="260" y="4148">&lt;Other</text>
+                <text x="312" y="4148">class</text>
+                <text x="352" y="4148">U/I</text>
+                <text x="404" y="4148">options&gt;</text>
+                <text x="252" y="4164">0xff</text>
+                <text x="256" y="4180">(Same</text>
+                <text x="352" y="4180">Encrypted_payload</text>
+                <text x="256" y="4196">and</text>
+                <text x="344" y="4196">Countersignature)</text>
+                <text x="16" y="4260">(#)</text>
+                <text x="60" y="4260">Sent</text>
+                <text x="100" y="4260">over</text>
+                <text x="156" y="4260">unicast,</text>
+                <text x="208" y="4260">and</text>
+                <text x="264" y="4260">protected</text>
+                <text x="324" y="4260">with</text>
+                <text x="368" y="4260">Group</text>
+                <text x="420" y="4260">OSCORE</text>
+                <text x="492" y="4260">end-to-end</text>
+                <text x="72" y="4276">between</text>
+                <text x="120" y="4276">the</text>
+                <text x="164" y="4276">server</text>
+                <text x="208" y="4276">and</text>
+                <text x="240" y="4276">the</text>
+                <text x="292" y="4276">clients.</text>
+                <text x="20" y="4308">(##)</text>
+                <text x="60" y="4308">Sent</text>
+                <text x="100" y="4308">over</text>
+                <text x="132" y="4308">IP</text>
+                <text x="184" y="4308">multicast</text>
+                <text x="236" y="4308">to</text>
+                <text x="340" y="4308">GROUP_ADDR:GROUP_PORT,</text>
+                <text x="472" y="4308">protected</text>
+                <text x="84" y="4324">end-to-end</text>
+                <text x="148" y="4324">with</text>
+                <text x="192" y="4324">Group</text>
+                <text x="244" y="4324">OSCORE</text>
+                <text x="304" y="4324">between</text>
+                <text x="352" y="4324">the</text>
+                <text x="396" y="4324">server</text>
+                <text x="440" y="4324">and</text>
+                <text x="472" y="4324">the</text>
+                <text x="524" y="4324">clients.</text>
               </g>
             </svg><a href="#section-7-4.1.1" class="pilcrow">¶</a>
 </div>
@@ -2555,7 +2528,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
 <a href="#name-example-of-group-observation" class="selfRef">Example of Group Observation with a Proxy and Group OSCORE</a>
         </figcaption></figure>
 </div>
-<p id="section-7-5">Unlike in the unprotected example in <a href="#intermediaries-example" class="auto internal xref">Section 6</a>, the proxy does <em>not</em> have all the information to perform request deduplication and can only recognize the identical request once the client sends the ticket request.<a href="#section-7-5" class="pilcrow">¶</a></p>
+<p id="section-7-5">Unlike in the unprotected example in <a href="#intermediaries-example" class="auto internal xref">Section 6</a>, the proxy does not have all the information to perform request deduplication and can only recognize the identical request once the client sends the ticket request.<a href="#section-7-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="intermediaries-example-e2e-security-det">
@@ -2563,7 +2536,7 @@ When no interested origin clients remain, the proxy can simply forget about bein
       <h2 id="name-example-with-a-proxy-and-wit">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-example-with-a-proxy-and-wit" class="section-name selfRef">Example with a Proxy and with Deterministic Requests</a>
       </h2>
-<p id="section-8-1">This section provides an example when a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">This section provides an example where a proxy P is used between the clients and the server, and Group OSCORE is used to protect multicast notifications end-to-end between the server and the clients.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <p id="section-8-2">In addition, the phantom request is especially a Deterministic Request (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-D" class="relref">Appendix D</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), which is protected with the pairwise mode of Group OSCORE as defined in <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>.<a href="#section-8-2" class="pilcrow">¶</a></p>
 <p id="section-8-3">Since the server replies to such a Deterministic Request with an informative response that is not protected (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-D" class="relref">Appendix D</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), the proxy is able to retrieve from the informative response everything needed to set itself as an observer in the group observation and to start listening to multicast notifications.<a href="#section-8-3" class="pilcrow">¶</a></p>
 <p id="section-8-4">In particular, each client sends the Deterministic Request to the proxy as a ticket request (see <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>). However, differently from what is defined in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> where the ticket request is not a Deterministic Request, the clients do not include a Listen-to-Multicast-Responses Option. This results in the proxy forwarding the ticket request (i.e., the phantom observation request) to the server and obtaining the information required to listen to multicast notifications, unless the proxy has already set itself to do so. Also, the proxy will be able to serve multicast notifications from its cache as per <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>.<a href="#section-8-4" class="pilcrow">¶</a></p>
@@ -2578,22 +2551,22 @@ When no interested origin clients remain, the proxy can simply forget about bein
 <p id="section-8.1-1">The example provided in this appendix as reflected by the message exchange shown in <a href="#intermediaries-example-e2e-security-det-exchange" class="auto internal xref">Section 8.2</a> assumes the following.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-8.1-2">
 <li id="section-8.1-2.1">
-            <p id="section-8.1-2.1.1">The OSCORE group supports Deterministic Requests. Thus, the server creates the phantom request as a Deterministic Request <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>, stores it locally as one of its issued phantom requests, and starts the group observation.<a href="#section-8.1-2.1.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.1.1">The OSCORE group supports Deterministic Requests. Thus, the server creates the phantom request as a Deterministic Request <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>, stores it locally as one of its issued phantom requests, and starts the corresponding group observation.<a href="#section-8.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.2">
-            <p id="section-8.1-2.2.1">The server makes the phantom request available through other means, e.g., a pub-sub broker, together with the transport-specific information for listening to multicast notifications bound to the phantom request (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-A" class="relref">Appendix A</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>).<a href="#section-8.1-2.2.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.2.1">The server makes the phantom request available through other means (e.g., a pub-sub broker), together with the transport-specific information for listening to multicast notifications bound to the phantom request (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-A" class="relref">Appendix A</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>).<a href="#section-8.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.3">
             <p id="section-8.1-2.3.1">Since the phantom request is a Deterministic Request, the server can more efficiently make it available in its smaller, plain version. The clients can obtain it from the particular alternative source and protect it as per <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-cacheable-oscore-01#section-3" class="relref">Section 3</a> of [<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>, thus all computing the same Deterministic Request to be used as phantom observation request.<a href="#section-8.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.4">
-            <p id="section-8.1-2.4.1">If the client does not rely on a proxy between itself and the server, it simply sets the group observation and starts listening to multicast notifications. Building on Step 2 above, the same would happen if the phantom request was not specifically a Deterministic Request.<a href="#section-8.1-2.4.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.4.1">If a client does not rely on a proxy between itself and the server, it simply sets the group observation and starts listening to multicast notifications. Building on Step 2 above, the same would happen if the phantom request was not specifically a Deterministic Request.<a href="#section-8.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.5">
-            <p id="section-8.1-2.5.1">If the client relies on a proxy between itself and the server, it uses the phantom request as a ticket request (see <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>). However, unlike the case considered in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> where the ticket request is not a Deterministic Request, the client does not include a Listen-to-Multicast-Responses Option in the phantom request sent to the proxy.<a href="#section-8.1-2.5.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.5.1">If a client relies on a proxy between itself and the server, it uses the phantom request as a ticket request (see <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>). However, unlike for the case in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> where the ticket request is not a Deterministic Request, the client does not include a Listen-to-Multicast-Responses Option in the phantom request sent to the proxy.<a href="#section-8.1-2.5.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.6">
-            <p id="section-8.1-2.6.1">Unlike for the case considered in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, here the proxy does not know that the request is exactly a ticket request for subscribing to multicast notifications. Thus, the proxy simply forwards the ticket request to the server like it normally would.<a href="#section-8.1-2.6.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.6.1">Unlike for the case in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, the proxy does not know that the request is exactly a ticket request for subscribing to multicast notifications. Thus, the proxy simply forwards the ticket request to the server like it normally would.<a href="#section-8.1-2.6.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.7">
             <p id="section-8.1-2.7.1">The server receives the ticket request, which is a deviation from the case where the ticket request is not a Deterministic Request and stops at the proxy (see <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>). Then, the server recognizes the phantom request among the stored ones, through a byte-by-byte comparison of the incoming message minus the transport-related fields (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-D" class="relref">Appendix D</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>). Consequently, the server does not perform any Group OSCORE processing on it.<a href="#section-8.1-2.7.1" class="pilcrow">¶</a></p>
@@ -2604,10 +2577,10 @@ When no interested origin clients remain, the proxy can simply forget about bein
 Note that the phantom request can be omitted, since it is the deterministic phantom request from the client, and thus "in terms of transport-independent information, identical to the registration request from the client" (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-4.2" class="relref">Section 4.2</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>).<a href="#section-8.1-2.8.2" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.9">
-            <p id="section-8.1-2.9.1">From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications. If the informative response includes a latest notification, the proxy caches it and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done it already and the request from the client was Confirmable).<a href="#section-8.1-2.9.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.9.1">From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications. If the informative response includes a latest notification, the proxy caches it and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done it already and the request from the client was a Confirmable message).<a href="#section-8.1-2.9.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.10">
-            <p id="section-8.1-2.10.1">Like in the case with a non-deterministic phantom request considered in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, the proxy fans out the multicast notifications to the origin clients as they come. Also, as new clients following the first one contact the proxy, the latter does not have to contact the server again as in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, since the deterministic phantom request would produce a cache hit as per <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>. Thus, the proxy can serve such clients with the latest fresh multicast notification from its cache.<a href="#section-8.1-2.10.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.10.1">Like for the case with a non-deterministic phantom request in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, the proxy fans out the multicast notifications to the origin clients as they come. Also, as new clients following the first one contact the proxy, the latter does not have to contact the server again as in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, since the deterministic phantom request would produce a cache hit as per <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>. Thus, the proxy can serve such clients with the latest fresh multicast notification from its cache.<a href="#section-8.1-2.10.1" class="pilcrow">¶</a></p>
 </li>
         </ol>
 </section>
@@ -2643,22 +2616,22 @@ Note that the phantom request can be omitted, since it is the deterministic phan
 <figure id="figure-3">
           <div id="section-8.2-6.1">
             <div class="alignLeft art-svg artwork" id="section-8.2-6.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="3424" width="576" viewBox="0 0 576 3424" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="3456" width="576" viewBox="0 0 576 3456" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,48 L 8,2112" fill="none" stroke="black"></path>
                 <path d="M 8,2176 L 8,2688" fill="none" stroke="black"></path>
-                <path d="M 8,2752 L 8,3312" fill="none" stroke="black"></path>
+                <path d="M 8,2752 L 8,3344" fill="none" stroke="black"></path>
                 <path d="M 72,48 L 72,664" fill="none" stroke="black"></path>
                 <path d="M 72,680 L 72,1912" fill="none" stroke="black"></path>
                 <path d="M 72,1928 L 72,2112" fill="none" stroke="black"></path>
                 <path d="M 72,2176 L 72,2688" fill="none" stroke="black"></path>
                 <path d="M 72,2752 L 72,3096" fill="none" stroke="black"></path>
-                <path d="M 72,3112 L 72,3312" fill="none" stroke="black"></path>
+                <path d="M 72,3112 L 72,3344" fill="none" stroke="black"></path>
                 <path d="M 136,48 L 136,2112" fill="none" stroke="black"></path>
                 <path d="M 136,2176 L 136,2688" fill="none" stroke="black"></path>
-                <path d="M 136,2752 L 136,3312" fill="none" stroke="black"></path>
+                <path d="M 136,2752 L 136,3344" fill="none" stroke="black"></path>
                 <path d="M 216,48 L 216,2112" fill="none" stroke="black"></path>
                 <path d="M 216,2176 L 216,2688" fill="none" stroke="black"></path>
-                <path d="M 216,2752 L 216,3312" fill="none" stroke="black"></path>
+                <path d="M 216,2752 L 216,3344" fill="none" stroke="black"></path>
                 <path d="M 512,1152 L 512,1160" fill="none" stroke="black"></path>
                 <path d="M 160,240 L 216,240" fill="none" stroke="black"></path>
                 <path d="M 160,288 L 208,288" fill="none" stroke="black"></path>
@@ -2670,7 +2643,7 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                 <path d="M 80,2496 L 136,2496" fill="none" stroke="black"></path>
                 <path d="M 144,2832 L 216,2832" fill="none" stroke="black"></path>
                 <path d="M 16,3104 L 136,3104" fill="none" stroke="black"></path>
-                <path d="M 80,3216 L 136,3216" fill="none" stroke="black"></path>
+                <path d="M 80,3232 L 136,3232" fill="none" stroke="black"></path>
                 <path d="M 148,264 L 160,288" fill="none" stroke="black"></path>
                 <path d="M 148,264 L 160,240" fill="none" stroke="black"></path>
                 <polygon class="arrowhead" points="216,912 204,906.4 204,917.6" fill="black" transform="rotate(0,208,912)"></polygon>
@@ -2679,7 +2652,7 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                 <polygon class="arrowhead" points="152,1552 140,1546.4 140,1557.6" fill="black" transform="rotate(180,144,1552)"></polygon>
                 <polygon class="arrowhead" points="136,2224 124,2218.4 124,2229.6" fill="black" transform="rotate(0,128,2224)"></polygon>
                 <polygon class="arrowhead" points="136,672 124,666.4 124,677.6" fill="black" transform="rotate(0,128,672)"></polygon>
-                <polygon class="arrowhead" points="88,3216 76,3210.4 76,3221.6" fill="black" transform="rotate(180,80,3216)"></polygon>
+                <polygon class="arrowhead" points="88,3232 76,3226.4 76,3237.6" fill="black" transform="rotate(180,80,3232)"></polygon>
                 <polygon class="arrowhead" points="88,2496 76,2490.4 76,2501.6" fill="black" transform="rotate(180,80,2496)"></polygon>
                 <polygon class="arrowhead" points="24,3104 12,3098.4 12,3109.6" fill="black" transform="rotate(180,16,3104)"></polygon>
                 <polygon class="arrowhead" points="24,1920 12,1914.4 12,1925.6" fill="black" transform="rotate(180,16,1920)"></polygon>
@@ -2741,18 +2714,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="324">0</text>
                   <text x="364" y="324">(register)</text>
                   <text x="264" y="340">OSCORE:</text>
-                  <text x="320" y="340">{kid:</text>
-                  <text x="364" y="340">0x09</text>
-                  <text x="392" y="340">;</text>
-                  <text x="420" y="340">piv:</text>
-                  <text x="448" y="340">0</text>
-                  <text x="464" y="340">;</text>
+                  <text x="340" y="340">[kid:0x09,</text>
+                  <text x="416" y="340">Partial</text>
+                  <text x="464" y="340">IV:</text>
+                  <text x="492" y="340">0,</text>
                   <text x="320" y="356">kid</text>
-                  <text x="372" y="356">context:</text>
-                  <text x="444" y="356">0x57ab2e</text>
-                  <text x="488" y="356">;</text>
-                  <text x="512" y="356">...</text>
-                  <text x="536" y="356">}</text>
+                  <text x="408" y="356">context:0x57ab2e]</text>
                   <text x="260" y="372">&lt;Other</text>
                   <text x="312" y="372">class</text>
                   <text x="352" y="372">U/I</text>
@@ -2816,18 +2783,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="708">0</text>
                   <text x="364" y="708">(register)</text>
                   <text x="264" y="724">OSCORE:</text>
-                  <text x="320" y="724">{kid:</text>
-                  <text x="364" y="724">0x09</text>
-                  <text x="392" y="724">;</text>
-                  <text x="420" y="724">piv:</text>
-                  <text x="448" y="724">0</text>
-                  <text x="464" y="724">;</text>
+                  <text x="340" y="724">[kid:0x09,</text>
+                  <text x="416" y="724">Partial</text>
+                  <text x="464" y="724">IV:</text>
+                  <text x="492" y="724">0,</text>
                   <text x="320" y="740">kid</text>
-                  <text x="372" y="740">context:</text>
-                  <text x="444" y="740">0x57ab2e</text>
-                  <text x="488" y="740">;</text>
-                  <text x="512" y="740">...</text>
-                  <text x="536" y="740">}</text>
+                  <text x="408" y="740">context:0x57ab2e]</text>
                   <text x="288" y="756">Proxy-Scheme:</text>
                   <text x="372" y="756">"coap"</text>
                   <text x="260" y="772">&lt;Other</text>
@@ -2858,18 +2819,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="948">0</text>
                   <text x="364" y="948">(register)</text>
                   <text x="264" y="964">OSCORE:</text>
-                  <text x="320" y="964">{kid:</text>
-                  <text x="364" y="964">0x09</text>
-                  <text x="392" y="964">;</text>
-                  <text x="420" y="964">piv:</text>
-                  <text x="448" y="964">0</text>
-                  <text x="464" y="964">;</text>
+                  <text x="340" y="964">[kid:0x09,</text>
+                  <text x="416" y="964">Partial</text>
+                  <text x="464" y="964">IV:</text>
+                  <text x="492" y="964">0,</text>
                   <text x="320" y="980">kid</text>
-                  <text x="372" y="980">context:</text>
-                  <text x="444" y="980">0x57ab2e</text>
-                  <text x="488" y="980">;</text>
-                  <text x="512" y="980">...</text>
-                  <text x="536" y="980">}</text>
+                  <text x="408" y="980">context:0x57ab2e]</text>
                   <text x="260" y="996">&lt;Other</text>
                   <text x="312" y="996">class</text>
                   <text x="352" y="996">U/I</text>
@@ -2919,13 +2874,9 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="268" y="1268">Observe:</text>
                   <text x="316" y="1268">10</text>
                   <text x="264" y="1284">OSCORE:</text>
-                  <text x="320" y="1284">{kid:</text>
-                  <text x="364" y="1284">0x05</text>
-                  <text x="392" y="1284">;</text>
-                  <text x="420" y="1284">piv:</text>
-                  <text x="456" y="1284">501</text>
-                  <text x="480" y="1284">;</text>
-                  <text x="508" y="1284">...}</text>
+                  <text x="340" y="1284">[kid:0x05,</text>
+                  <text x="416" y="1284">Partial</text>
+                  <text x="480" y="1284">IV:501]</text>
                   <text x="268" y="1300">Max-Age:</text>
                   <text x="324" y="1300">3000</text>
                   <text x="260" y="1316">&lt;Other</text>
@@ -2939,11 +2890,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="1364">(2.05</text>
                   <text x="376" y="1364">Content),</text>
                   <text x="284" y="1380">Observe:</text>
-                  <text x="356" y="1380">[empty],</text>
+                  <text x="328" y="1380">-</text>
+                  <text x="372" y="1380">(empty),</text>
                   <text x="284" y="1396">Payload:</text>
                   <text x="348" y="1396">"1234"</text>
                   <text x="240" y="1412">}</text>
-                  <text x="280" y="1428">&lt;Signature&gt;</text>
+                  <text x="308" y="1428">&lt;Countersignature&gt;</text>
                   <text x="244" y="1460">(S</text>
                   <text x="300" y="1460">increments</text>
                   <text x="360" y="1460">the</text>
@@ -3021,9 +2973,9 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="464" y="1860">notification"</text>
                   <text x="280" y="1876">response,</text>
                   <text x="348" y="1876">caches</text>
-                  <text x="388" y="1876">it</text>
-                  <text x="416" y="1876">and</text>
-                  <text x="468" y="1876">forwards</text>
+                  <text x="392" y="1876">it,</text>
+                  <text x="424" y="1876">and</text>
+                  <text x="476" y="1876">forwards</text>
                   <text x="252" y="1892">it</text>
                   <text x="284" y="1892">back</text>
                   <text x="316" y="1892">to</text>
@@ -3034,13 +2986,9 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="268" y="1940">Observe:</text>
                   <text x="328" y="1940">54120</text>
                   <text x="264" y="1956">OSCORE:</text>
-                  <text x="320" y="1956">{kid:</text>
-                  <text x="364" y="1956">0x05</text>
-                  <text x="392" y="1956">;</text>
-                  <text x="420" y="1956">piv:</text>
-                  <text x="456" y="1956">501</text>
-                  <text x="480" y="1956">;</text>
-                  <text x="508" y="1956">...}</text>
+                  <text x="340" y="1956">[kid:0x05,</text>
+                  <text x="416" y="1956">Partial</text>
+                  <text x="480" y="1956">IV:501]</text>
                   <text x="268" y="1972">Max-Age:</text>
                   <text x="324" y="1972">2995</text>
                   <text x="260" y="1988">&lt;Other</text>
@@ -3054,11 +3002,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="2036">(2.05</text>
                   <text x="376" y="2036">Content),</text>
                   <text x="284" y="2052">Observe:</text>
-                  <text x="356" y="2052">[empty],</text>
+                  <text x="328" y="2052">-</text>
+                  <text x="372" y="2052">(empty),</text>
                   <text x="284" y="2068">Payload:</text>
                   <text x="348" y="2068">"1234"</text>
                   <text x="240" y="2084">}</text>
-                  <text x="280" y="2100">&lt;Signature&gt;</text>
+                  <text x="308" y="2100">&lt;Countersignature&gt;</text>
                   <text x="16" y="2148">...</text>
                   <text x="72" y="2148">...</text>
                   <text x="136" y="2148">...</text>
@@ -3080,16 +3029,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="2260">0</text>
                   <text x="364" y="2260">(register)</text>
                   <text x="264" y="2276">OSCORE:</text>
-                  <text x="320" y="2276">{kid:</text>
-                  <text x="364" y="2276">0x09</text>
-                  <text x="392" y="2276">;</text>
-                  <text x="420" y="2276">piv:</text>
-                  <text x="448" y="2276">0</text>
-                  <text x="464" y="2276">;</text>
+                  <text x="340" y="2276">[kid:0x09,</text>
+                  <text x="416" y="2276">Partial</text>
+                  <text x="464" y="2276">IV:</text>
+                  <text x="492" y="2276">0,</text>
                   <text x="320" y="2292">kid</text>
-                  <text x="372" y="2292">context:</text>
-                  <text x="448" y="2292">0x57ab2e;</text>
-                  <text x="508" y="2292">...}</text>
+                  <text x="408" y="2292">context:0x57ab2e]</text>
                   <text x="288" y="2308">Proxy-Scheme:</text>
                   <text x="372" y="2308">"coap"</text>
                   <text x="260" y="2324">&lt;Other</text>
@@ -3123,13 +3068,9 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="268" y="2516">Observe:</text>
                   <text x="328" y="2516">54120</text>
                   <text x="264" y="2532">OSCORE:</text>
-                  <text x="320" y="2532">{kid:</text>
-                  <text x="364" y="2532">0x05</text>
-                  <text x="392" y="2532">;</text>
-                  <text x="420" y="2532">piv:</text>
-                  <text x="456" y="2532">501</text>
-                  <text x="480" y="2532">;</text>
-                  <text x="508" y="2532">...}</text>
+                  <text x="340" y="2532">[kid:0x05,</text>
+                  <text x="416" y="2532">Partial</text>
+                  <text x="480" y="2532">IV:501]</text>
                   <text x="268" y="2548">Max-Age:</text>
                   <text x="324" y="2548">1800</text>
                   <text x="260" y="2564">&lt;Other</text>
@@ -3143,11 +3084,12 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="2612">(2.05</text>
                   <text x="376" y="2612">Content),</text>
                   <text x="284" y="2628">Observe:</text>
-                  <text x="356" y="2628">[empty],</text>
+                  <text x="328" y="2628">-</text>
+                  <text x="372" y="2628">(empty),</text>
                   <text x="284" y="2644">Payload:</text>
                   <text x="348" y="2644">"1234"</text>
                   <text x="240" y="2660">}</text>
-                  <text x="280" y="2676">&lt;Signature&gt;</text>
+                  <text x="308" y="2676">&lt;Countersignature&gt;</text>
                   <text x="16" y="2724">...</text>
                   <text x="72" y="2724">...</text>
                   <text x="136" y="2724">...</text>
@@ -3168,12 +3110,9 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="268" y="2852">Observe:</text>
                   <text x="316" y="2852">11</text>
                   <text x="264" y="2868">OSCORE:</text>
-                  <text x="320" y="2868">{kid:</text>
-                  <text x="368" y="2868">0x05;</text>
-                  <text x="412" y="2868">piv:</text>
-                  <text x="448" y="2868">502</text>
-                  <text x="472" y="2868">;</text>
-                  <text x="500" y="2868">...}</text>
+                  <text x="340" y="2868">[kid:0x05,</text>
+                  <text x="416" y="2868">Partial</text>
+                  <text x="480" y="2868">IV:502]</text>
                   <text x="260" y="2884">&lt;Other</text>
                   <text x="312" y="2884">class</text>
                   <text x="352" y="2884">U/I</text>
@@ -3185,7 +3124,8 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="312" y="2932">(2.05</text>
                   <text x="376" y="2932">Content),</text>
                   <text x="284" y="2948">Observe:</text>
-                  <text x="356" y="2948">[empty],</text>
+                  <text x="328" y="2948">-</text>
+                  <text x="372" y="2948">(empty),</text>
                   <text x="276" y="2964">&lt;Other</text>
                   <text x="328" y="2964">class</text>
                   <text x="360" y="2964">E</text>
@@ -3194,7 +3134,7 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="284" y="2996">Payload:</text>
                   <text x="348" y="2996">"5678"</text>
                   <text x="240" y="3012">}</text>
-                  <text x="280" y="3028">&lt;Signature&gt;</text>
+                  <text x="308" y="3028">&lt;Countersignature&gt;</text>
                   <text x="244" y="3060">(P</text>
                   <text x="288" y="3060">updates</text>
                   <text x="336" y="3060">its</text>
@@ -3209,12 +3149,9 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="268" y="3124">Observe:</text>
                   <text x="328" y="3124">54123</text>
                   <text x="264" y="3140">OSCORE:</text>
-                  <text x="320" y="3140">{kid:</text>
-                  <text x="368" y="3140">0x05;</text>
-                  <text x="412" y="3140">piv:</text>
-                  <text x="448" y="3140">502</text>
-                  <text x="472" y="3140">;</text>
-                  <text x="500" y="3140">...}</text>
+                  <text x="340" y="3140">[kid:0x05,</text>
+                  <text x="416" y="3140">Partial</text>
+                  <text x="480" y="3140">IV:502]</text>
                   <text x="260" y="3156">&lt;Other</text>
                   <text x="312" y="3156">class</text>
                   <text x="352" y="3156">U/I</text>
@@ -3222,54 +3159,50 @@ Note that the phantom request can be omitted, since it is the deterministic phan
                   <text x="252" y="3172">0xff</text>
                   <text x="256" y="3188">(Same</text>
                   <text x="352" y="3188">Encrypted_payload</text>
-                  <text x="440" y="3188">and</text>
-                  <text x="500" y="3188">signature)</text>
-                  <text x="260" y="3220">Token:</text>
-                  <text x="308" y="3220">0x01</text>
-                  <text x="100" y="3236">2.05</text>
-                  <text x="268" y="3236">Observe:</text>
-                  <text x="328" y="3236">54123</text>
-                  <text x="264" y="3252">OSCORE:</text>
-                  <text x="320" y="3252">{kid:</text>
-                  <text x="368" y="3252">0x05;</text>
-                  <text x="412" y="3252">piv:</text>
-                  <text x="448" y="3252">502</text>
-                  <text x="472" y="3252">;</text>
-                  <text x="500" y="3252">...}</text>
-                  <text x="260" y="3268">&lt;Other</text>
-                  <text x="312" y="3268">class</text>
-                  <text x="352" y="3268">U/I</text>
-                  <text x="404" y="3268">options&gt;</text>
-                  <text x="252" y="3284">0xff</text>
-                  <text x="256" y="3300">(Same</text>
-                  <text x="352" y="3300">Encrypted_payload</text>
-                  <text x="440" y="3300">and</text>
-                  <text x="500" y="3300">signature)</text>
-                  <text x="16" y="3364">(#)</text>
-                  <text x="60" y="3364">Sent</text>
-                  <text x="100" y="3364">over</text>
-                  <text x="152" y="3364">unicast</text>
-                  <text x="200" y="3364">and</text>
-                  <text x="268" y="3364">unprotected.</text>
-                  <text x="20" y="3396">(##)</text>
+                  <text x="256" y="3204">and</text>
+                  <text x="344" y="3204">Countersignature)</text>
+                  <text x="260" y="3236">Token:</text>
+                  <text x="308" y="3236">0x01</text>
+                  <text x="100" y="3252">2.05</text>
+                  <text x="268" y="3252">Observe:</text>
+                  <text x="328" y="3252">54123</text>
+                  <text x="264" y="3268">OSCORE:</text>
+                  <text x="340" y="3268">[kid:0x05,</text>
+                  <text x="416" y="3268">Partial</text>
+                  <text x="480" y="3268">IV:502]</text>
+                  <text x="260" y="3284">&lt;Other</text>
+                  <text x="312" y="3284">class</text>
+                  <text x="352" y="3284">U/I</text>
+                  <text x="404" y="3284">options&gt;</text>
+                  <text x="252" y="3300">0xff</text>
+                  <text x="256" y="3316">(Same</text>
+                  <text x="352" y="3316">Encrypted_payload</text>
+                  <text x="256" y="3332">and</text>
+                  <text x="344" y="3332">Countersignature)</text>
+                  <text x="16" y="3396">(#)</text>
                   <text x="60" y="3396">Sent</text>
                   <text x="100" y="3396">over</text>
-                  <text x="132" y="3396">IP</text>
-                  <text x="184" y="3396">multicast</text>
-                  <text x="236" y="3396">to</text>
-                  <text x="336" y="3396">GROUP_ADDR:GROUP_PORT</text>
-                  <text x="440" y="3396">and</text>
-                  <text x="496" y="3396">protected</text>
-                  <text x="60" y="3412">with</text>
-                  <text x="104" y="3412">Group</text>
-                  <text x="156" y="3412">OSCORE</text>
-                  <text x="228" y="3412">end-to-end</text>
-                  <text x="304" y="3412">between</text>
-                  <text x="352" y="3412">the</text>
-                  <text x="396" y="3412">server</text>
-                  <text x="440" y="3412">and</text>
-                  <text x="472" y="3412">the</text>
-                  <text x="524" y="3412">clients.</text>
+                  <text x="152" y="3396">unicast</text>
+                  <text x="200" y="3396">and</text>
+                  <text x="268" y="3396">unprotected.</text>
+                  <text x="20" y="3428">(##)</text>
+                  <text x="60" y="3428">Sent</text>
+                  <text x="100" y="3428">over</text>
+                  <text x="132" y="3428">IP</text>
+                  <text x="184" y="3428">multicast</text>
+                  <text x="236" y="3428">to</text>
+                  <text x="340" y="3428">GROUP_ADDR:GROUP_PORT,</text>
+                  <text x="472" y="3428">protected</text>
+                  <text x="84" y="3444">end-to-end</text>
+                  <text x="148" y="3444">with</text>
+                  <text x="192" y="3444">Group</text>
+                  <text x="244" y="3444">OSCORE</text>
+                  <text x="304" y="3444">between</text>
+                  <text x="352" y="3444">the</text>
+                  <text x="396" y="3444">server</text>
+                  <text x="440" y="3444">and</text>
+                  <text x="472" y="3444">the</text>
+                  <text x="524" y="3444">clients.</text>
                 </g>
               </svg><a href="#section-8.2-6.1.1" class="pilcrow">¶</a>
 </div>
@@ -3538,7 +3471,10 @@ Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-b
         </h3>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-1.1">
-            <p id="appendix-A.1-1.1.1">Clarifications and editorial improvements.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-1.1.1">Fixes in the examples of message exchanges.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-1.2">
+            <p id="appendix-A.1-1.2.1">Clarifications and editorial improvements.<a href="#appendix-A.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
