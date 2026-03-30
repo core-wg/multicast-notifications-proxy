@@ -737,6 +737,7 @@ C1      C2      P         S
 |       |       |         |  Observe: 0 (register)
 |       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
 |       |       |         |           kid context:0x57ab2e]
+|       |       |         |  Request-Hash: 0x4a086e65 ...
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -762,6 +763,7 @@ C1      C2      P         S
 |       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Proxy-Scheme: "coap"
+|       |       |         |  Request-Hash: 0x4a086e65 ...
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -776,6 +778,7 @@ C1      C2      P         S
 |       |       |         |  Observe: 0 (register)
 |       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
 |       |       |         |           kid context:0x57ab2e]
+|       |       |         |  Request-Hash: 0x4a086e65 ...
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -859,6 +862,7 @@ C1      C2      P         S
 |       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Proxy-Scheme: "coap"
+|       |       |         |  Request-Hash: 0x4a086e65 ...
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
