@@ -3246,22 +3246,25 @@ Note that the phantom request can be omitted, since it is the deterministic phan
 <p id="section-9-5">Furthermore, the following assumptions apply to this scenario:<a href="#section-9-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-9-6.1">
-          <p id="section-9-6.1.1">The server knows the address PRX_ADDR and port number PRX_PORT that PRX exposes to the clients when acting as stand-in for the server.<a href="#section-9-6.1.1" class="pilcrow">¶</a></p>
+          <p id="section-9-6.1.1">The proxy has address PRX_ADDR and listens to the port number PRX_PORT. In particular, PRX exposes PRX_ADDR and PRX_PORT to clients when acting as stand-in for the server.<a href="#section-9-6.1.1" class="pilcrow">¶</a></p>
 <p id="section-9-6.1.2">
 That is, a request sent with destination address PRX_ADDR and port number PRX_PORT will reach PRX, which forwards the request to the server.<a href="#section-9-6.1.2" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-9-6.2">
-          <p id="section-9-6.2.1">When the server makes the phantom request available through other means (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-A" class="relref">Appendix A</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), the accompanying group observation data is such that:<a href="#section-9-6.2.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-9-6.2.2.1">
-              <p id="section-9-6.2.2.1.1">It provides server-side, transport-specific information, which consists of the address PRX_ADDR and port number PRX_PORT associated with PRX.<a href="#section-9-6.2.2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-9-6.2.1">The server knows the address PRX_ADDR and port number PRX_PORT that PRX exposes to clients.<a href="#section-9-6.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-9-6.2.2.2">
-              <p id="section-9-6.2.2.2.1">It does not provide any further client-side, transport-specific information.<a href="#section-9-6.2.2.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-9-6.3">
+          <p id="section-9-6.3.1">When the server makes the phantom request available through other means (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-A" class="relref">Appendix A</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), the accompanying group observation data is such that:<a href="#section-9-6.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-9-6.3.2.1">
+              <p id="section-9-6.3.2.1.1">It provides server-side, transport-specific information, which consists of the address PRX_ADDR and port number PRX_PORT associated with PRX.<a href="#section-9-6.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-9-6.3.2.2">
+              <p id="section-9-6.3.2.2.1">It does not provide any client-side, transport-specific information.<a href="#section-9-6.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-9-6.2.3">
-Assuming that the group information data has a format consistent with the 'tp_info' array of the informative response (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-4.2.1" class="relref">Section 4.2.1</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), this means that the 'tp_info' array includes only the 'tpi_server' element specifying a CRI with addressing information PRX_ADDR and PRX_PORT (i.e., targeting PRX). That is, 'tp_info' does not include the 'tpi_details' element, regardless of what is expected per the transport used.<a href="#section-9-6.2.3" class="pilcrow">¶</a></p>
+<p id="section-9-6.3.3">
+Assuming that the group information data has a format consistent with the 'tp_info' array of the informative response (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-4.2.1" class="relref">Section 4.2.1</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), this means that the 'tp_info' array includes only the 'tpi_server' element specifying a CRI with addressing information PRX_ADDR and PRX_PORT (i.e., targeting PRX). That is, 'tp_info' does not include the 'tpi_details' element, regardless of what is expected as per the transport used.<a href="#section-9-6.3.3" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <div id="rev-proxy-main-process">
@@ -3282,16 +3285,16 @@ Assuming that the group information data has a format consistent with the 'tp_in
 <p id="section-9.1-4">The main process consists of the following steps.<a href="#section-9.1-4" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-9.1-5">
 <li id="section-9.1-5.1">
-            <p id="section-9.1-5.1.1">From the group observation data, the client knows the deterministic phantom request PH_REQ, the address PRX_ADDR, and the port number PRX_PORT, but no other client-side, transport-specific information.<a href="#section-9.1-5.1.1" class="pilcrow">¶</a></p>
+            <p id="section-9.1-5.1.1">From the group observation data, the client knows the deterministic phantom request PH_REQ, the address PRX_ADDR, and the port number PRX_PORT, but no client-side, transport-specific information.<a href="#section-9.1-5.1.1" class="pilcrow">¶</a></p>
 <p id="section-9.1-5.1.2">
 In such a particular situation, the client sends PH_REQ with destination address PRX_ADDR and port number PRX_PORT, i.e., to PRX.<a href="#section-9.1-5.1.2" class="pilcrow">¶</a></p>
 </li>
           <li id="section-9.1-5.2">
-            <p id="section-9.1-5.2.1">Upon receiving PH_REQ, PRX performs the same actions performed by the proxy in the scenario of <a href="#intermediaries-example-e2e-security-det" class="auto internal xref">Section 8</a>.<a href="#section-9.1-5.2.1" class="pilcrow">¶</a></p>
+            <p id="section-9.1-5.2.1">Upon receiving PH_REQ, PRX performs the same actions that are performed by the proxy in the scenario of <a href="#intermediaries-example-e2e-security-det" class="auto internal xref">Section 8</a>.<a href="#section-9.1-5.2.1" class="pilcrow">¶</a></p>
 <p id="section-9.1-5.2.2">
 That is, if PH_REQ results in a cache hit at PRX, then PRX replies to the client with the latest multicast notification for the target resource from its cache and takes no further actions.<a href="#section-9.1-5.2.2" class="pilcrow">¶</a></p>
 <p id="section-9.1-5.2.3">
-Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-byte, the server replies to PRX with an unprotected informative response, where 'tp_info' specifies the information to receive multicast notifications for the target resource. Based on such information, PRX starts listening to multicast notifications. If the informative response includes a latest notification, then PRX caches that notification and forwards it to the client.<a href="#section-9.1-5.2.3" class="pilcrow">¶</a></p>
+Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-byte, the server replies to PRX with an unprotected informative response, where 'tp_info' also includes the 'tpi_details' element, specifying the information to receive multicast notifications for the target resource. Based on such information, PRX starts listening to multicast notifications. If the informative response includes a latest notification, then PRX caches that notification and forwards it to the client.<a href="#section-9.1-5.2.3" class="pilcrow">¶</a></p>
 </li>
         </ol>
 <p id="section-9.1-6">Editor's note: add a figure showing an example of message exchange.<a href="#section-9.1-6" class="pilcrow">¶</a></p>
@@ -3301,19 +3304,19 @@ Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-b
 <a href="#section-9.1.1" class="section-number selfRef">9.1.1. </a><a href="#name-client-initialization-proce" class="section-name selfRef">Client Initialization Procedure</a>
           </h4>
 <p id="section-9.1.1-1">The following early initialization procedure is performed by a client that does not have the group observation data and/or is not a member of the correct OSCORE group, before starting the main process described in <a href="#rev-proxy-main-process" class="auto internal xref">Section 9.1</a>.<a href="#section-9.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-9.1.1-2">The client is minimally provided with the pair (PRX_ADDR, PRX_PORT) associated with PRX, which the client believes to be targeting the origin server.<a href="#section-9.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-9.1.1-2">The client is minimally provided with the pair (PRX_ADDR, PRX_PORT) associated with PRX, which the client believes to be associated with the origin server.<a href="#section-9.1.1-2" class="pilcrow">¶</a></p>
 <p id="section-9.1.1-3">a. The client sends a traditional Observe registration request with destination address PRX_ADDR and port number PRX_PORT, i.e., to PRX. The request is protected with (Group) OSCORE, i.e., end-to-end between the client and the server.<a href="#section-9.1.1-3" class="pilcrow">¶</a></p>
 <p id="section-9.1.1-4">b. PRX receives the request and forwards it to the server, as usual.<a href="#section-9.1.1-4" class="pilcrow">¶</a></p>
 <p id="section-9.1.1-5">c. The server replies with a 5.03 (Service Unavailable) informative response. The response is protected with (Group) OSCORE, i.e., end-to-end between the client and the server. The payload of the response specifies the following parameters:<a href="#section-9.1.1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-9.1.1-6.1">
-              <p id="section-9.1.1-6.1.1">The 'tp_info' parameter, within which the 'tpi_server' element is a CRI with addressing information PRX_ADDR and PRX_PORT (i.e., targeting PRX). The 'tp_info' parameter does not include the 'tpi_details' element, regardless of what is expected per the transport used.<a href="#section-9.1.1-6.1.1" class="pilcrow">¶</a></p>
+              <p id="section-9.1.1-6.1.1">The 'tp_info' parameter, within which the 'tpi_server' element is a CRI with addressing information PRX_ADDR and PRX_PORT (i.e., targeting PRX). The 'tp_info' parameter does not include the 'tpi_details' element, regardless of what is expected as per the transport used.<a href="#section-9.1.1-6.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-9.1.1-6.2">
               <p id="section-9.1.1-6.2.1">The 'ph_req' parameter, conveying the deterministic phantom request PH_REQ.<a href="#section-9.1.1-6.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-9.1.1-6.3">
-              <p id="section-9.1.1-6.3.1">Optionally, parameters conveying information that the client can use for joining the OSCORE group if that has not happened yet, or the keying material used in the OSCORE group if the server is managing it (see <a href="#rev-proxy-main-process" class="auto internal xref">Section 9.1</a>).<a href="#section-9.1.1-6.3.1" class="pilcrow">¶</a></p>
+              <p id="section-9.1.1-6.3.1">Optionally, parameters conveying information that the client can use for joining the OSCORE group if that has not happened yet (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-9.1" class="relref">Section 9.1</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), as well as the keying material used in the OSCORE group if the server is managing it (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#appendix-C" class="relref">Appendix C</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>).<a href="#section-9.1.1-6.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-9.1.1-7">d. PRX receives the protected informative response and forwards it to the client, as usual.<a href="#section-9.1.1-7" class="pilcrow">¶</a></p>
