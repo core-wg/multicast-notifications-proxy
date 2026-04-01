@@ -5,11 +5,11 @@
 CoRE Working Group                                             M. Tiloca
 Internet-Draft                                                R. Höglund
 Intended status: Informational                                   RISE AB
-Expires: 1 October 2026                                        C. Amsüss
+Expires: 3 October 2026                                        C. Amsüss
                                                                         
                                                             F. Palombini
                                                              Ericsson AB
-                                                           30 March 2026
+                                                            1 April 2026
 
 
   Using Proxies for Observe Notifications as CoAP Multicast Responses
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 October 2026.
+   This Internet-Draft will expire on 3 October 2026.
 
 Copyright Notice
 
@@ -522,29 +522,29 @@ Table of Contents
    still active and interested clients.  In particular, the following
    applies.
 
-   *  Since the Multicast-Response-Feedback-Divider Option defined in
-      Section 8.1 of [I-D.ietf-core-observe-multicast-notifications] is
-      not Safe-to-Forward, the proxy needs to recognize and understand
-      the option in order to participate to the rough counting process.
+   *  Since the Feedback-Divider Option defined in Section 8.1 of
+      [I-D.ietf-core-observe-multicast-notifications] is not Safe-to-
+      Forward, the proxy needs to recognize and understand the option in
+      order to participate to the rough counting process.
 
-      If the proxy receives a request that includes the Multicast-
-      Response-Feedback-Divider Option but the proxy does not recognize
-      and understand the option, then the proxy stops processing the
-      request and sends a 4.02 (Bad Option) response to the observer
-      client (see Section 5.7.1 of [RFC7252]).  This results in the
-      client terminating its observation at the proxy, after which the
-      client stops receiving notifications for the group observation.
+      If the proxy receives a request that includes the Feedback-Divider
+      Option but the proxy does not recognize and understand the option,
+      then the proxy stops processing the request and sends a 4.02 (Bad
+      Option) response to the observer client (see Section 5.7.1 of
+      [RFC7252]).  This results in the client terminating its
+      observation at the proxy, after which the client stops receiving
+      notifications for the group observation.
 
       If the proxy receives a multicast notification that includes the
-      Multicast-Response-Feedback-Divider Option but the proxy does not
-      recognize and understand the option, then the proxy stops
-      processing the received multicast notification and sends a 5.02
-      (Bad Gateway) response to each of the observer clients (see
-      Section 5.7.1 of [RFC7252]).  This results in all the observer
-      clients terminating their observation at the proxy, after which
-      they stop receiving notifications for the group observation.
-      Consequently, the proxy may decide to forget about its
-      participation to the group observation at the server.
+      Feedback-Divider Option but the proxy does not recognize and
+      understand the option, then the proxy stops processing the
+      received multicast notification and sends a 5.02 (Bad Gateway)
+      response to each of the observer clients (see Section 5.7.1 of
+      [RFC7252]).  This results in all the observer clients terminating
+      their observation at the proxy, after which they stop receiving
+      notifications for the group observation.  Consequently, the proxy
+      may decide to forget about its participation to the group
+      observation at the server.
 
       This is not an issue if communications between the origin
       endpoints are protected end-to-end, i.e., both for the requests
@@ -552,27 +552,26 @@ Table of Contents
       as for the multicast notifications from the origin server by using
       Group OSCORE (see Section 9 of
       [I-D.ietf-core-observe-multicast-notifications] and Section 4 of
-      the present document).  In fact, in such a case, the Multicast-
-      Response-Feedback-Divider Option is protected end-to-end as well,
-      and is thus hidden from the proxy.
+      the present document).  In fact, in such a case, the Feedback-
+      Divider Option is protected end-to-end as well, and is thus hidden
+      from the proxy.
 
       Therefore, if the server uses the rough counting process defined
       in Section 8 of [I-D.ietf-core-observe-multicast-notifications]
       but communications are not protected end-to-end between the origin
       endpoints, then it is practically required that the proxy
-      recognizes and understands the Multicast-Response-Feedback-Divider
-      Option.  If that is not the case, then every execution of the
-      rough counting process will effectively prevent the clients from
-      receiving further notifications for the group observation, until
-      they register again as observers at the proxy.
+      recognizes and understands the Feedback-Divider Option.  If that
+      is not the case, then every execution of the rough counting
+      process will effectively prevent the clients from receiving
+      further notifications for the group observation, until they
+      register again as observers at the proxy.
 
    *  The following holds when the proxy receives a multicast
-      notification including the Multicast-Response-Feedback-Divider
-      Option.
+      notification including the Feedback-Divider Option.
 
       -  If the multicast notification is not protected end-to-end by
-         using Group OSCORE (see Section 3), then the Multicast-
-         Response-Feedback-Divider Option is visible to the proxy.
+         using Group OSCORE (see Section 3), then the Feedback-Divider
+         Option is visible to the proxy.
 
          In this case, the proxy proceeds like defined in Section 8.2 of
          [I-D.ietf-core-observe-multicast-notifications] for an origin
@@ -599,12 +598,12 @@ Table of Contents
       -  If the multicast notification is protected end-to-end by using
          Group OSCORE (see Section 9 of
          [I-D.ietf-core-observe-multicast-notifications] and Section 4
-         of this document), then the Multicast-Response-Feedback-Divider
-         Option is protected end-to-end as well, and is thus hidden from
-         the proxy.  As a consequence, the proxy forwards the
-         notification to (the previous hop towards) any of the origin
-         clients, each of which answers to the server if it picks a
-         random number I equal to 0.
+         of this document), then the Feedback-Divider Option is
+         protected end-to-end as well, and is thus hidden from the
+         proxy.  As a consequence, the proxy forwards the notification
+         to (the previous hop towards) any of the origin clients, each
+         of which answers to the server if it picks a random number I
+         equal to 0.
 
 6.  Example with a Proxy
 
@@ -1741,6 +1740,9 @@ Appendix A.  Document Updates
    This section is to be removed before publishing as an RFC.
 
 A.1.  Version -00 to -01
+
+   *  Renamed the Multicast-Response-Feedback-Divider Option as
+      Feedback-Divider.
 
    *  Fixes in the examples of message exchanges.
 

@@ -1048,11 +1048,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Proxies for Observe Multicast Notificati</td>
-<td class="right">March 2026</td>
+<td class="right">April 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Tiloca, et al.</td>
-<td class="center">Expires 1 October 2026</td>
+<td class="center">Expires 3 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-core-multicast-notifications-proxy-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-30" class="published">30 March 2026</time>
+<time datetime="2026-04-01" class="published">1 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-01">1 October 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-03">3 October 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1126,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1464,21 +1464,21 @@ Note also that, identically to the phantom request, the ticket request is still 
 <p id="section-5-3">With reference to the method defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>, this has an impact on the rough counting that the server performs to keep an estimate of still active and interested clients. In particular, the following applies.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5-4.1">
-          <p id="section-5-4.1.1">Since the Multicast-Response-Feedback-Divider Option defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-8.1" class="relref">Section 8.1</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> is not Safe-to-Forward, the proxy needs to recognize and understand the option in order to participate to the rough counting process.<a href="#section-5-4.1.1" class="pilcrow">¶</a></p>
+          <p id="section-5-4.1.1">Since the Feedback-Divider Option defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-8.1" class="relref">Section 8.1</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> is not Safe-to-Forward, the proxy needs to recognize and understand the option in order to participate to the rough counting process.<a href="#section-5-4.1.1" class="pilcrow">¶</a></p>
 <p id="section-5-4.1.2">
-If the proxy receives a request that includes the Multicast-Response-Feedback-Divider Option but the proxy does not recognize and understand the option, then the proxy stops processing the request and sends a 4.02 (Bad Option) response to the observer client (see <span><a href="https://rfc-editor.org/rfc/rfc7252#section-5.7.1" class="relref">Section 5.7.1</a> of [<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>). This results in the client terminating its observation at the proxy, after which the client stops receiving notifications for the group observation.<a href="#section-5-4.1.2" class="pilcrow">¶</a></p>
+If the proxy receives a request that includes the Feedback-Divider Option but the proxy does not recognize and understand the option, then the proxy stops processing the request and sends a 4.02 (Bad Option) response to the observer client (see <span><a href="https://rfc-editor.org/rfc/rfc7252#section-5.7.1" class="relref">Section 5.7.1</a> of [<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>). This results in the client terminating its observation at the proxy, after which the client stops receiving notifications for the group observation.<a href="#section-5-4.1.2" class="pilcrow">¶</a></p>
 <p id="section-5-4.1.3">
-If the proxy receives a multicast notification that includes the Multicast-Response-Feedback-Divider Option but the proxy does not recognize and understand the option, then the proxy stops processing the received multicast notification and sends a 5.02 (Bad Gateway) response to each of the observer clients (see <span><a href="https://rfc-editor.org/rfc/rfc7252#section-5.7.1" class="relref">Section 5.7.1</a> of [<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>). This results in all the observer clients terminating their observation at the proxy, after which they stop receiving notifications for the group observation. Consequently, the proxy may decide to forget about its participation to the group observation at the server.<a href="#section-5-4.1.3" class="pilcrow">¶</a></p>
+If the proxy receives a multicast notification that includes the Feedback-Divider Option but the proxy does not recognize and understand the option, then the proxy stops processing the received multicast notification and sends a 5.02 (Bad Gateway) response to each of the observer clients (see <span><a href="https://rfc-editor.org/rfc/rfc7252#section-5.7.1" class="relref">Section 5.7.1</a> of [<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>). This results in all the observer clients terminating their observation at the proxy, after which they stop receiving notifications for the group observation. Consequently, the proxy may decide to forget about its participation to the group observation at the server.<a href="#section-5-4.1.3" class="pilcrow">¶</a></p>
 <p id="section-5-4.1.4">
-This is not an issue if communications between the origin endpoints are protected end-to-end, i.e., both for the requests from the origin clients by using OSCORE or Group OSCORE, as well as for the multicast notifications from the origin server by using Group OSCORE (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> and <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> of the present document). In fact, in such a case, the Multicast-Response-Feedback-Divider Option is protected end-to-end as well, and is thus hidden from the proxy.<a href="#section-5-4.1.4" class="pilcrow">¶</a></p>
+This is not an issue if communications between the origin endpoints are protected end-to-end, i.e., both for the requests from the origin clients by using OSCORE or Group OSCORE, as well as for the multicast notifications from the origin server by using Group OSCORE (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> and <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> of the present document). In fact, in such a case, the Feedback-Divider Option is protected end-to-end as well, and is thus hidden from the proxy.<a href="#section-5-4.1.4" class="pilcrow">¶</a></p>
 <p id="section-5-4.1.5">
-Therefore, if the server uses the rough counting process defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> but communications are not protected end-to-end between the origin endpoints, then it is practically required that the proxy recognizes and understands the Multicast-Response-Feedback-Divider Option. If that is not the case, then every execution of the rough counting process will effectively prevent the clients from receiving further notifications for the group observation, until they register again as observers at the proxy.<a href="#section-5-4.1.5" class="pilcrow">¶</a></p>
+Therefore, if the server uses the rough counting process defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> but communications are not protected end-to-end between the origin endpoints, then it is practically required that the proxy recognizes and understands the Feedback-Divider Option. If that is not the case, then every execution of the rough counting process will effectively prevent the clients from receiving further notifications for the group observation, until they register again as observers at the proxy.<a href="#section-5-4.1.5" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-5-4.2">
-          <p id="section-5-4.2.1">The following holds when the proxy receives a multicast notification including the Multicast-Response-Feedback-Divider Option.<a href="#section-5-4.2.1" class="pilcrow">¶</a></p>
+          <p id="section-5-4.2.1">The following holds when the proxy receives a multicast notification including the Feedback-Divider Option.<a href="#section-5-4.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5-4.2.2.1">
-              <p id="section-5-4.2.2.1.1">If the multicast notification is not protected end-to-end by using Group OSCORE (see <a href="#intermediaries" class="auto internal xref">Section 3</a>), then the Multicast-Response-Feedback-Divider Option is visible to the proxy.<a href="#section-5-4.2.2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-5-4.2.2.1.1">If the multicast notification is not protected end-to-end by using Group OSCORE (see <a href="#intermediaries" class="auto internal xref">Section 3</a>), then the Feedback-Divider Option is visible to the proxy.<a href="#section-5-4.2.2.1.1" class="pilcrow">¶</a></p>
 <p id="section-5-4.2.2.1.2">
 In this case, the proxy proceeds like defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-8.2" class="relref">Section 8.2</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> for an origin client, i.e., by answering on its own to the server if it picks a random number I equal to 0. When doing so, the proxy will be counted by the server as a single client.<a href="#section-5-4.2.2.1.2" class="pilcrow">¶</a></p>
 <p id="section-5-4.2.2.1.3">
@@ -1489,7 +1489,7 @@ The proxy would have to rely on separate means for verifying whether the origin 
 When no interested origin clients remain, the proxy can simply forget about being part of the group observation for the target resource at the server, like an origin client would do (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-5.4" class="relref">Section 5.4</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>).<a href="#section-5-4.2.2.1.5" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5-4.2.2.2">
-              <p id="section-5-4.2.2.2.1">If the multicast notification is protected end-to-end by using Group OSCORE (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> and <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> of this document), then the Multicast-Response-Feedback-Divider Option is protected end-to-end as well, and is thus hidden from the proxy. As a consequence, the proxy forwards the notification to (the previous hop towards) any of the origin clients, each of which answers to the server if it picks a random number I equal to 0.<a href="#section-5-4.2.2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-5-4.2.2.2.1">If the multicast notification is protected end-to-end by using Group OSCORE (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-13#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span> and <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a> of this document), then the Feedback-Divider Option is protected end-to-end as well, and is thus hidden from the proxy. As a consequence, the proxy forwards the notification to (the previous hop towards) any of the origin clients, each of which answers to the server if it picks a random number I equal to 0.<a href="#section-5-4.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </li>
@@ -3486,10 +3486,13 @@ Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-b
         </h3>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-1.1">
-            <p id="appendix-A.1-1.1.1">Fixes in the examples of message exchanges.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-1.1.1">Renamed the Multicast-Response-Feedback-Divider Option as Feedback-Divider.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-1.2">
-            <p id="appendix-A.1-1.2.1">Clarifications and editorial improvements.<a href="#appendix-A.1-1.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-1.2.1">Fixes in the examples of message exchanges.<a href="#appendix-A.1-1.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="appendix-A.1-1.3">
+            <p id="appendix-A.1-1.3.1">Clarifications and editorial improvements.<a href="#appendix-A.1-1.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
