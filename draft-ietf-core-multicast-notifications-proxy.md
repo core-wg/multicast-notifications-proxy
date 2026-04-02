@@ -804,6 +804,7 @@ C1      C2      P         S
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
 |       |       |         |    Observe: - (empty),
+|       |       |         |    Max-Age: 3000,
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
 |       |       |         |  <Countersignature>
@@ -846,6 +847,7 @@ C1      C2      P         S
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
 |       |       |         |    Observe: - (empty),
+|       |       |         |    Max-Age: 3000,
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
 |       |       |         |  <Countersignature>
@@ -883,6 +885,7 @@ C1      C2      P         S
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
 |       |       |         |    Observe: - (empty),
+|       |       |         |    Max-Age: 3000,
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
 |       |       |         |  <Countersignature>
@@ -904,6 +907,7 @@ C1      C2      P         S
 |       |       |         |  Encrypted_payload {
 |       |       |         |    0x45 (2.05 Content),
 |       |       |         |    Observe: - (empty),
+|       |       |         |    Max-Age: 3000,
 |       |       |         |    <Other class E options>,
 |       |       |         |    0xff,
 |       |       |         |    Payload: "5678"
