@@ -5,11 +5,11 @@
 CoRE Working Group                                             M. Tiloca
 Internet-Draft                                                R. Höglund
 Intended status: Informational                                   RISE AB
-Expires: 3 October 2026                                        C. Amsüss
+Expires: 4 October 2026                                        C. Amsüss
                                                                         
                                                             F. Palombini
                                                              Ericsson AB
-                                                            1 April 2026
+                                                            2 April 2026
 
 
   Using Proxies for Observe Notifications as CoAP Multicast Responses
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 October 2026.
+   This Internet-Draft will expire on 4 October 2026.
 
 Copyright Notice
 
@@ -1369,6 +1369,7 @@ Table of Contents
  |       |       |<--------+  Token: 0x7b
  |       |       | 2.05    |  Observe: 11
  |       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+ |       |       |         |  Max-Age: 3000
  |       |       |         |  <Other class U/I options>
  |       |       |         |  0xff
  |       |       |         |  Encrypted_payload {
@@ -1386,6 +1387,7 @@ Table of Contents
  |<--------------+         |  Token: 0x4a
  | 2.05  |       |         |  Observe: 54123
  |       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+ |       |       |         |  Max-Age: 2998
  |       |       |         |  <Other class U/I options>
  |       |       |         |  0xff
  |       |       |         |  (Same Encrypted_payload
@@ -1394,6 +1396,7 @@ Table of Contents
  |       |<------+         |  Token: 0x01
  |       | 2.05  |         |  Observe: 54123
  |       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+ |       |       |         |  Max-Age: 2996
  |       |       |         |  <Other class U/I options>
  |       |       |         |  0xff
  |       |       |         |  (Same Encrypted_payload
