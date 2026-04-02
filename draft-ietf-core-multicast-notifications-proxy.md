@@ -898,6 +898,7 @@ C1      C2      P         S
 |       |       |<--------+  Token: 0x7b
 |       |       | 2.05    |  Observe: 11
 |       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  Max-Age: 3000
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -915,6 +916,7 @@ C1      C2      P         S
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  Observe: 54123
 |       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  Max-Age: 2998
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload
@@ -923,6 +925,7 @@ C1      C2      P         S
 |       |<------+         |  Token: 0x01
 |       | 2.05  |         |  Observe: 54123
 |       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  Max-Age: 2996
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload
