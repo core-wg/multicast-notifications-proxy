@@ -387,7 +387,7 @@ C1      C2      P         S
 |       |       |         |
 +-------------->|         |  Token: 0x4a
 | FETCH |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x01, Partial IV:101]
+|       |       |         |  OSCORE: [kid:0x01, Partial IV:0x65]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  <Other class U/I options>
@@ -401,7 +401,7 @@ C1      C2      P         S
 |       |       |         |
 |       |       +-------->|  Token: 0x5e
 |       |       | FETCH   |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x01, Partial IV:101]
+|       |       |         |  OSCORE: [kid:0x01, Partial IV:0x65]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -425,7 +425,7 @@ C1      C2      P         S
 |       |       | \       |
 |       |       |  `----->|  Token: 0x7b
 |       |       |   FETCH |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:501,
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  <Other class U/I options>
@@ -477,6 +477,7 @@ C1      C2      P         S
 |       |       |         |
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  OSCORE: - (empty)
+|       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload)
@@ -484,7 +485,7 @@ C1      C2      P         S
 |  (#)  |       |         |
 +-------------->|         |  Token: 0x4b
 | FETCH |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:501,
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
@@ -517,7 +518,7 @@ C1      C2      P         S
 |       |       |         |
 |       +------>|         |  Token: 0x01
 |       | FETCH |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x02, Partial IV:201]
+|       |       |         |  OSCORE: [kid:0x02, Partial IV:0xc9]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  <Other class U/I options>
@@ -531,7 +532,7 @@ C1      C2      P         S
 |       |       |         |
 |       |       +-------->|  Token: 0x5f
 |       |       | FETCH   |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x02, Partial IV:201]
+|       |       |         |  OSCORE: [kid:0x02, Partial IV:0xc9]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -575,13 +576,14 @@ C1      C2      P         S
 |       |       |         |
 |       |<------+         |  Token: 0x01
 |       | 2.05  |         |  OSCORE: - (empty)
+|       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload)
 |       |  (#)  |         |
 |       +------>|         |  Token: 0x02
 |       | FETCH |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:501,
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Proxy-Scheme: "coap"
@@ -615,7 +617,8 @@ C1      C2      P         S
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
 |       |       | 2.05    |  Observe: 11
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -629,7 +632,8 @@ C1      C2      P         S
 |  (#)  |       |         |
 |<--------------+         |  Token: 0x4b
 | 2.05  |       |         |  Observe: 54123
-|       |       |         |  OSCORE: [kid:0x05, Partial IV: 502]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload
@@ -637,7 +641,8 @@ C1      C2      P         S
 |       |  (#)  |         |
 |       |<------+         |  Token: 0x02
 |       | 2.05  |         |  Observe: 54123
-|       |       |         |  OSCORE: [kid:0x05, Partial IV: 502]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload
@@ -705,13 +710,13 @@ The same assumptions and notation used in {{Section 10 of -mult-notif}} are used
 
 * The server S sends multicast notifications to the IP multicast address GRP_ADDR and port number GRP_PORT, and starts the group observation already after creating the deterministic phantom request to early disseminate.
 
-* S is a member of the OSCORE group with 'kid context' = 0x57ab2e as Group ID. In the OSCORE group, S has 'kid' = 0x05 as Sender ID and SN_5 = 501 as Sender Sequence Number.
+* S is a member of the OSCORE group with 'kid context' = 0x57ab2e as Group ID. In the OSCORE group, S has 'kid' = 0x05 as Sender ID and SN_5 = 501 (i.e., 0x01f5) as Sender Sequence Number.
 
 In addition:
 
 * The proxy has address PRX_ADDR and listens to the port number PRX_PORT.
 
-* The deterministic client in the OSCORE group has 'kid' = 0x09.
+* The deterministic client in the OSCORE group has 'kid' = 0x09 as Sender ID.
 
 Unless explicitly indicated, all messages transmitted on the wire are sent over unicast and protected with Group OSCORE end-to-end between a client and the server.
 
@@ -735,7 +740,7 @@ C1      C2      P         S
 |       |       |  `----->|  Token: 0x7b
 |       |       |   FETCH |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0x00,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Request-Hash: 0x4a086e65 ...
 |       |       |         |  <Other class U/I options>
@@ -760,7 +765,7 @@ C1      C2      P         S
 +-------------->|         |  Token: 0x4a
 | FETCH |       |         |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0x00,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  Request-Hash: 0x4a086e65 ...
@@ -776,7 +781,7 @@ C1      C2      P         S
 |       |       +-------->|  Token: 0x5e
 |       |       | FETCH   |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0x00,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Request-Hash: 0x4a086e65 ...
 |       |       |         |  <Other class U/I options>
@@ -792,12 +797,13 @@ C1      C2      P         S
 |       |       |         |   comparison against the stored one, and
 |       |       |         |   skips any Group OSCORE processing)
 |       |       |         |
+|       |       |         |
 |       |       |         |  (S prepares the "last notification"
 |       |       |         |   response defined below)
 |       |       |         |
 |       |       |         |  0x45 (2.05 Content)
 |       |       |         |  Observe: 10
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:501]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5]
 |       |       |         |  Max-Age: 3000
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -814,6 +820,7 @@ C1      C2      P         S
 |       |       |         |
 |       |       |         |  (S responds to the proxy with an
 |       |       |         |   unprotected informative response)
+|       |       |         |
 |       |       |   (#)   |
 |       |       |<--------+  Token: 0x5e
 |       |       | 5.03    |  Content-Format: application/
@@ -840,7 +847,7 @@ C1      C2      P         S
 |       |       |         |
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  Observe: 54120
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:501]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5]
 |       |       |         |  Max-Age: 2995
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -861,7 +868,7 @@ C1      C2      P         S
 |       +------>|         |  Token: 0x01
 |       | FETCH |         |  Uri-Host: "sensor.example"
 |       |       |         |  Observe: 0 (register)
-|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0,
+|       |       |         |  OSCORE: [kid:0x09, Partial IV: 0x00,
 |       |       |         |           kid context:0x57ab2e]
 |       |       |         |  Proxy-Scheme: "coap"
 |       |       |         |  Request-Hash: 0x4a086e65 ...
@@ -878,7 +885,7 @@ C1      C2      P         S
 |       |       |         |
 |       |<------+         |  Token: 0x01
 |       | 2.05  |         |  Observe: 54120
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:501]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5]
 |       |       |         |  Max-Age: 1800
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -900,7 +907,7 @@ C1      C2      P         S
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
 |       |       | 2.05    |  Observe: 11
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
 |       |       |         |  Max-Age: 3000
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -919,7 +926,7 @@ C1      C2      P         S
 |       |       |         |
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  Observe: 54123
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
 |       |       |         |  Max-Age: 2998
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -928,7 +935,7 @@ C1      C2      P         S
 |       |       |         |
 |       |<------+         |  Token: 0x01
 |       | 2.05  |         |  Observe: 54123
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:502]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
 |       |       |         |  Max-Age: 2996
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
