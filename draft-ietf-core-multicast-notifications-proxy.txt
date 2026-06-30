@@ -5,11 +5,11 @@
 CoRE Working Group                                             M. Tiloca
 Internet-Draft                                                R. Höglund
 Intended status: Informational                                   RISE AB
-Expires: 21 October 2026                                       C. Amsüss
+Expires: 1 January 2027                                        C. Amsüss
                                                                         
                                                             F. Palombini
                                                              Ericsson AB
-                                                           19 April 2026
+                                                            30 June 2026
 
 
   Using Proxies for Observe Notifications as CoAP Multicast Responses
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 October 2026.
+   This Internet-Draft will expire on 1 January 2027.
 
 Copyright Notice
 
@@ -100,8 +100,9 @@ Table of Contents
      12.1.  Normative References
      12.2.  Informative References
    Appendix A.  Document Updates
-     A.1.  Version -00 to -01
-     A.2.  Version -00
+     A.1.  Version -01 to -02
+     A.2.  Version -00 to -01
+     A.3.  Version -00
    Acknowledgments
    Authors' Addresses
 
@@ -618,7 +619,8 @@ Table of Contents
 
  C1     C2     P        S
  |      |      |        |
- |      |      |        |  (The value of the resource /r is "1234")
+ |      |      |        |  (The representation of the
+ |      |      |        |   resource /r is "1234")
  |      |      |        |
  +------------>|        |  Token: 0x4a
  | GET  |      |        |  Observe: 0 (register)
@@ -646,7 +648,7 @@ Table of Contents
  |      |      |        |  (S creates a group observation of /r)
  |      |      |        |
  |      |      |        |  (S increments the observer counter
- |      |      |        |  for the group observation of /r)
+ |      |      |        |   for the group observation of /r)
  |      |      |        |
  |      |      |        |
  |      |      |        |
@@ -668,9 +670,9 @@ Table of Contents
  |      |      |        |
  |      |      |        |
  |      |      |        |  (The proxy starts listening to the
- |      |      |        |   GRP_ADDR address and the GRP_PORT port.)
+ |      |      |        |   GRP_ADDR address and the GRP_PORT port)
  |      |      |        |
- |      |      |        |  (The proxy adds C1 to its list of observers.)
+ |      |      |        |  (The proxy adds C1 to its list of observers)
  |      |      |        |
  |<------------+        |  Token: 0x4a
  | 2.05 |      |        |  Observe: 54120
@@ -685,7 +687,7 @@ Table of Contents
  |      | GET  |        |  Observe: 0 (register)
  |      |      |        |  Proxy-Uri: "coap://sensor.example/r"
  |      |      |        |
- |      |      |        |  (The proxy has a fresh cache representation)
+ |      |      |        |  (The proxy has a fresh cached representation)
  |      |      |        |
  |      |<-----+        |  Token: 0x01
  |      | 2.05 |        |  Observe: 54120
@@ -696,8 +698,8 @@ Table of Contents
  ...   ...    ...     ...
 
  |      |      |        |
- |      |      |        |  (The value of the resource
- |      |      |        |  /r changes to "5678".)
+ |      |      |        |  (The representation of the
+ |      |      |        |   resource /r changes to "5678")
  |      |      |        |
  |      |      |  (#)   |
  |      |      |<-------+  Token: 0x7b
@@ -746,7 +748,8 @@ Table of Contents
 
  C1      C2      P         S
  |       |       |         |
- |       |       |         |  (The value of the resource /r is "1234")
+ |       |       |         |  (The representation of the
+ |       |       |         |   resource /r is "1234")
  |       |       |         |
  +-------------->|         |  Token: 0x4a
  | FETCH |       |         |  Observe: 0 (register)
@@ -777,11 +780,11 @@ Table of Contents
  |       |       |         |
  |       |       |         |
  |       |       |         |  (S allocates the available
- |       |       |         |   Token value 0x7b .)
+ |       |       |         |   Token value 0x7b)
  |       |       |         |
  |       |       |         |  (S sends to itself a phantom observation
- |       |       |         |  request PH_REQ as coming from the
- |       |       |         |  IP multicast address GRP_ADDR)
+ |       |       |         |   request PH_REQ as coming from the
+ |       |       |         |   IP multicast address GRP_ADDR)
  |       |       |    (#)  |
  |       |       |  .------+
  |       |       | /       |
@@ -868,10 +871,10 @@ Table of Contents
  |       |       |         |  <Countersignature>
  |       |       |         |
  |       |       |         |  (The proxy starts listening to the
- |       |       |         |   GRP_ADDR address and the GRP_PORT port.)
+ |       |       |         |   GRP_ADDR address and the GRP_PORT port)
  |       |       |         |
  |       |       |         |  (The proxy adds C1 to
- |       |       |         |   its list of observers.)
+ |       |       |         |   its list of observers)
  |       |       |         |
  |<--------------+         |
  |       |  ACK  |         |
@@ -966,7 +969,7 @@ Table of Contents
  |       |       |         |  <Countersignature>
  |       |       |         |
  |       |       |         |  (The proxy adds C2 to
- |       |       |         |   its list of observers.)
+ |       |       |         |   its list of observers)
  |       |<------+         |
  |       |  ACK  |         |
  |       |       |         |
@@ -974,8 +977,8 @@ Table of Contents
  ...    ...     ...      ...
 
  |       |       |         |
- |       |       |         |  (The value of the resource
- |       |       |         |   /r changes to "5678".)
+ |       |       |         |  (The representation of the
+ |       |       |         |   resource /r changes to "5678")
  |       |       |         |
  |       |       |   (##)  |
  |       |       |<--------+  Token: 0x7b
@@ -1177,9 +1180,11 @@ Table of Contents
       observation already after creating the deterministic phantom
       request to early disseminate.
 
-   *  S is a member of the OSCORE group with 'kid context' = 0x57ab2e as
-      Group ID.  In the OSCORE group, S has 'kid' = 0x05 as Sender ID
-      and SN_5 = 501 (i.e., 0x01f5) as Sender Sequence Number.
+   *  C1, C2, and S are members of the OSCORE group with 'kid context' =
+      0x57ab2e as Group ID.
+
+      In the OSCORE group, S has 'kid' = 0x05 as Sender ID and SN_5 =
+      501 (i.e., 0x01f5) as Sender Sequence Number.
 
    In addition:
 
@@ -1195,10 +1200,11 @@ Table of Contents
 
  C1      C2      P         S
  |       |       |         |
- |       |       |         |  (The value of the resource /r is "1234")
+ |       |       |         |  (The representation of the
+ |       |       |         |   resource /r is "1234")
  |       |       |         |
  |       |       |         |  (S allocates the available
- |       |       |         |   Token value 0x7b .)
+ |       |       |         |   Token value 0x7b)
  |       |       |         |
  |       |       |         |  (S sends to itself a phantom observation
  |       |       |         |   request PH_REQ as coming from the
@@ -1373,8 +1379,8 @@ Table of Contents
  ...    ...     ...      ...
 
  |       |       |         |
- |       |       |         |  (The value of the resource
- |       |       |         |   /r changes to "5678".)
+ |       |       |         |  (The representation of the
+ |       |       |         |   resource /r changes to "5678")
  |       |       |         |
  |       |       |   (##)  |
  |       |       |<--------+  Token: 0x7b
@@ -1679,9 +1685,9 @@ Table of Contents
               Tiloca, M., Höglund, R., Amsüss, C., and F. Palombini,
               "Observe Notifications as CoAP Multicast Responses", Work
               in Progress, Internet-Draft, draft-ietf-core-observe-
-              multicast-notifications-13, 20 October 2025,
+              multicast-notifications-14, 22 April 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-core-
-              observe-multicast-notifications-13>.
+              observe-multicast-notifications-14>.
 
    [I-D.ietf-core-oscore-groupcomm]
               Tiloca, M., Selander, G., Palombini, F., Mattsson, J. P.,
@@ -1754,7 +1760,11 @@ Appendix A.  Document Updates
 
    This section is to be removed before publishing as an RFC.
 
-A.1.  Version -00 to -01
+A.1.  Version -01 to -02
+
+   *  Clarifications and editorial improvements.
+
+A.2.  Version -00 to -01
 
    *  Renamed the Multicast-Response-Feedback-Divider Option as
       Feedback-Divider.
@@ -1763,7 +1773,7 @@ A.1.  Version -00 to -01
 
    *  Clarifications and editorial improvements.
 
-A.2.  Version -00
+A.3.  Version -00
 
    *  Imported content about proxies from draft-ietf-core-observe-
       multicast-notifications-12.
