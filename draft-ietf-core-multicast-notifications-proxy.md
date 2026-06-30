@@ -265,7 +265,8 @@ Unless explicitly indicated, all messages transmitted on the wire are sent over 
 ~~~~~~~~~~~ aasvg
 C1     C2     P        S
 |      |      |        |
-|      |      |        |  (The value of the resource /r is "1234")
+|      |      |        |  (The representation of the
+|      |      |        |   resource /r is "1234")
 |      |      |        |
 +------------>|        |  Token: 0x4a
 | GET  |      |        |  Observe: 0 (register)
@@ -293,7 +294,7 @@ C1     C2     P        S
 |      |      |        |  (S creates a group observation of /r)
 |      |      |        |
 |      |      |        |  (S increments the observer counter
-|      |      |        |  for the group observation of /r)
+|      |      |        |   for the group observation of /r)
 |      |      |        |
 |      |      |        |
 |      |      |        |
@@ -315,9 +316,9 @@ C1     C2     P        S
 |      |      |        |
 |      |      |        |
 |      |      |        |  (The proxy starts listening to the
-|      |      |        |   GRP_ADDR address and the GRP_PORT port.)
+|      |      |        |   GRP_ADDR address and the GRP_PORT port)
 |      |      |        |
-|      |      |        |  (The proxy adds C1 to its list of observers.)
+|      |      |        |  (The proxy adds C1 to its list of observers)
 |      |      |        |
 |<------------+        |  Token: 0x4a
 | 2.05 |      |        |  Observe: 54120
@@ -332,7 +333,7 @@ C1     C2     P        S
 |      | GET  |        |  Observe: 0 (register)
 |      |      |        |  Proxy-Uri: "coap://sensor.example/r"
 |      |      |        |
-|      |      |        |  (The proxy has a fresh cache representation)
+|      |      |        |  (The proxy has a fresh cached representation)
 |      |      |        |
 |      |<-----+        |  Token: 0x01
 |      | 2.05 |        |  Observe: 54120
@@ -343,8 +344,8 @@ C1     C2     P        S
 ...   ...    ...     ...
 
 |      |      |        |
-|      |      |        |  (The value of the resource
-|      |      |        |  /r changes to "5678".)
+|      |      |        |  (The representation of the
+|      |      |        |   resource /r changes to "5678")
 |      |      |        |
 |      |      |  (#)   |
 |      |      |<-------+  Token: 0x7b
@@ -383,7 +384,8 @@ Unless explicitly indicated, all messages transmitted on the wire are sent over 
 ~~~~~~~~~~~ aasvg
 C1      C2      P         S
 |       |       |         |
-|       |       |         |  (The value of the resource /r is "1234")
+|       |       |         |  (The representation of the
+|       |       |         |   resource /r is "1234")
 |       |       |         |
 +-------------->|         |  Token: 0x4a
 | FETCH |       |         |  Observe: 0 (register)
@@ -414,11 +416,11 @@ C1      C2      P         S
 |       |       |         |
 |       |       |         |
 |       |       |         |  (S allocates the available
-|       |       |         |   Token value 0x7b .)
+|       |       |         |   Token value 0x7b)
 |       |       |         |
 |       |       |         |  (S sends to itself a phantom observation
-|       |       |         |  request PH_REQ as coming from the
-|       |       |         |  IP multicast address GRP_ADDR)
+|       |       |         |   request PH_REQ as coming from the
+|       |       |         |   IP multicast address GRP_ADDR)
 |       |       |    (#)  |
 |       |       |  .------+
 |       |       | /       |
@@ -505,10 +507,10 @@ C1      C2      P         S
 |       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (The proxy starts listening to the
-|       |       |         |   GRP_ADDR address and the GRP_PORT port.)
+|       |       |         |   GRP_ADDR address and the GRP_PORT port)
 |       |       |         |
 |       |       |         |  (The proxy adds C1 to
-|       |       |         |   its list of observers.)
+|       |       |         |   its list of observers)
 |       |       |         |
 |<--------------+         |
 |       |  ACK  |         |
@@ -603,7 +605,7 @@ C1      C2      P         S
 |       |       |         |  <Countersignature>
 |       |       |         |
 |       |       |         |  (The proxy adds C2 to
-|       |       |         |   its list of observers.)
+|       |       |         |   its list of observers)
 |       |<------+         |
 |       |  ACK  |         |
 |       |       |         |
@@ -611,8 +613,8 @@ C1      C2      P         S
 ...    ...     ...      ...
 
 |       |       |         |
-|       |       |         |  (The value of the resource
-|       |       |         |   /r changes to "5678".)
+|       |       |         |  (The representation of the
+|       |       |         |   resource /r changes to "5678")
 |       |       |         |
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
@@ -710,7 +712,9 @@ The same assumptions and notation used in {{Section 10 of -mult-notif}} are used
 
 * The server S sends multicast notifications to the IP multicast address GRP_ADDR and port number GRP_PORT, and starts the group observation already after creating the deterministic phantom request to early disseminate.
 
-* S is a member of the OSCORE group with 'kid context' = 0x57ab2e as Group ID. In the OSCORE group, S has 'kid' = 0x05 as Sender ID and SN_5 = 501 (i.e., 0x01f5) as Sender Sequence Number.
+* C1, C2, and S are members of the OSCORE group with 'kid context' = 0x57ab2e as Group ID.
+
+  In the OSCORE group, S has 'kid' = 0x05 as Sender ID and SN_5 = 501 (i.e., 0x01f5) as Sender Sequence Number.
 
 In addition:
 
@@ -723,10 +727,11 @@ Unless explicitly indicated, all messages transmitted on the wire are sent over 
 ~~~~~~~~~~~ aasvg
 C1      C2      P         S
 |       |       |         |
-|       |       |         |  (The value of the resource /r is "1234")
+|       |       |         |  (The representation of the
+|       |       |         |   resource /r is "1234")
 |       |       |         |
 |       |       |         |  (S allocates the available
-|       |       |         |   Token value 0x7b .)
+|       |       |         |   Token value 0x7b)
 |       |       |         |
 |       |       |         |  (S sends to itself a phantom observation
 |       |       |         |   request PH_REQ as coming from the
@@ -901,8 +906,8 @@ C1      C2      P         S
 ...    ...     ...      ...
 
 |       |       |         |
-|       |       |         |  (The value of the resource
-|       |       |         |   /r changes to "5678".)
+|       |       |         |  (The representation of the
+|       |       |         |   resource /r changes to "5678")
 |       |       |         |
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
@@ -1067,6 +1072,10 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 
 # Document Updates # {#sec-document-updates}
 {:removeinrfc}
+
+## Version -01 to -02 ## {#sec-01-02}
+
+* Clarifications and editorial improvements.
 
 ## Version -00 to -01 ## {#sec-00-01}
 
