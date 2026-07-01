@@ -970,7 +970,7 @@ Like for the example in {{intermediaries-example-e2e-security-det}}, the phantom
 
 The same assumptions compiled in {{intermediaries-example-e2e-security-det-intro}} apply in this scenario too, with the following differences:
 
-* Assumption (2): when the server makes the phantom request available through other means (see {{Section A of -mult-notif}}), the accompanying group observation data does _not_ specify client-side, transport-specific information for listening to multicast notifications bound to the phantom request.
+* Assumption (2): when the server makes the phantom request available through other means (see {{Section A of -mult-notif}}), the accompanying group observation data does _not_ specify client-side transport-specific information for listening to multicast notifications bound to the phantom request.
 
 * Assumption (4): this assumption does not apply, since all the clients rely on PRX, although they are not aware to communicate with a proxy.
 
@@ -986,7 +986,7 @@ Furthermore, the following assumptions apply to this scenario:
 
   * It provides server-side, transport-specific information, which consists of the address PRX_ADDR and port number PRX_PORT associated with PRX.
 
-  * It does not provide any client-side, transport-specific information.
+  * It does not provide any client-side transport-specific information.
 
   Assuming that the group information data has a format consistent with the 'tp_info' array of the informative response (see {{Section 4.2.1 of -mult-notif}}), this means that the 'tp_info' array includes only the 'tpi_server' element specifying a CRI with addressing information PRX_ADDR and PRX_PORT (i.e., targeting PRX). That is, 'tp_info' does not include the 'tpi_details' element, regardless of what is expected as per the transport used.
 
@@ -1002,7 +1002,7 @@ If any of the following conditions does not hold, then the client first performs
 
 The main process consists of the following steps.
 
-1. From the group observation data, the client knows the deterministic phantom request PH_REQ, the address PRX_ADDR, and the port number PRX_PORT. However, the client does not have client-side, transport-specific information.
+1. From the group observation data, the client knows the deterministic phantom request PH_REQ, the address PRX_ADDR, and the port number PRX_PORT. However, the client does not have client-side transport-specific information.
 
    In such a particular situation, the client sends PH_REQ with destination address PRX_ADDR and port number PRX_PORT, i.e., to PRX.
 
