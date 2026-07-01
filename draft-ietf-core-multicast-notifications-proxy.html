@@ -3324,7 +3324,17 @@ In such a particular situation, the client sends PH_REQ with destination address
 <p id="section-9.1-5.2.2">
 That is, if PH_REQ results in a cache hit at PRX, then PRX replies to the client with the latest multicast notification for the target resource from its cache and takes no further actions.<a href="#section-9.1-5.2.2" class="pilcrow">¶</a></p>
 <p id="section-9.1-5.2.3">
-Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-byte, the server replies to PRX with an unprotected informative response, where 'tp_info' also includes the 'tpi_details' element, specifying the information to receive multicast notifications for the target resource. Based on such information, PRX starts listening to multicast notifications. If the informative response includes a latest notification, then PRX caches that notification and forwards it to the client.<a href="#section-9.1-5.2.3" class="pilcrow">¶</a></p>
+Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-byte, the server replies to PRX with an unprotected informative response, where 'tp_info' includes:<a href="#section-9.1-5.2.3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-9.1-5.2.4.1">
+                <p id="section-9.1-5.2.4.1.1">The 'tpi_server' element, specifying the addressing information of the server, i.e., the source addressing information of the multicast notifications that are sent for the group observation.<a href="#section-9.1-5.2.4.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-9.1-5.2.4.2">
+                <p id="section-9.1-5.2.4.2.1">The 'tpi_details' element, specifying the information to receive multicast notifications for the target resource.<a href="#section-9.1-5.2.4.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-9.1-5.2.5">
+Based on such information, PRX starts listening to multicast notifications. If the informative response includes a latest notification, then PRX caches that notification and forwards it to the client.<a href="#section-9.1-5.2.5" class="pilcrow">¶</a></p>
 </li>
         </ol>
 <p id="section-9.1-6">Editor's note: add a figure showing an example of message exchange.<a href="#section-9.1-6" class="pilcrow">¶</a></p>
@@ -3520,6 +3530,9 @@ Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-b
 <ul class="normal">
 <li class="normal" id="appendix-A.1-1.1.2.1">
                 <p id="appendix-A.1-1.1.2.1.1">Proxy error handling for the informative response, when using deterministic phantom requests.<a href="#appendix-A.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="appendix-A.1-1.1.2.2">
+                <p id="appendix-A.1-1.1.2.2.1">Unprotected informative response sent to the reverse-proxy, when using deterministic phantom requests.<a href="#appendix-A.1-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
