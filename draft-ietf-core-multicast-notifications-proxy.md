@@ -700,7 +700,13 @@ The example provided in this appendix as reflected by the message exchange shown
 
    Note that the phantom request can be omitted, since it is the deterministic phantom request from the client, and thus "in terms of transport-independent information, identical to the registration request from the client" (see {{Section 4.2 of -mult-notif}}).
 
-9. From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications. If the informative response includes a latest notification, the proxy caches it and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done it already and the request from the client was a Confirmable message).
+9. After receiving the informative response, the proxy proceeds as follows.
+
+   If the informative response includes the 'ph_req' parameter and this specifies transport-independent information different from the one of the sent Deterministic Request, then the proxy considers the informative response malformed.
+
+   From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications.
+
+   If the informative response includes the 'last_notif' parameter specifying the latest notification, the proxy caches that notification and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done that already and the request from the client was a Confirmable message).
 
 10. Like for the case with a non-deterministic phantom request in {{intermediaries-e2e-security}}, the proxy fans out the multicast notifications to the origin clients as they come. Also, as new clients following the first one contact the proxy, the latter does not have to contact the server again as in {{intermediaries-e2e-security}}, since the deterministic phantom request would produce a cache hit as per {{-cacheable-oscore}}. Thus, the proxy can serve such clients with the latest fresh multicast notification from its cache.
 
@@ -1075,7 +1081,11 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 
 ## Version -01 to -02 ## {#sec-01-02}
 
-* Clarifications and editorial improvements.
+* Clarifications:
+
+  * Proxy error handling for the informative response, when using deterministic phantom requests.
+
+* Minor clarifications and editorial improvements.
 
 ## Version -00 to -01 ## {#sec-00-01}
 
