@@ -124,9 +124,9 @@ Upon receiving an informative response, the proxy performs as specified for the 
 
 In particular, by using the information retrieved from the informative response, the proxy configures an observation of the target resource at the origin server, acting as a client directly taking part in the group observation.
 
-As a consequence, the proxy listens to the IP multicast address and port number indicated by the server, i.e., per the CRI {{-href}} specified by a dedicated element of 'tpi_details' within the 'tp_info' parameter, in the informative response. In particular, when transporting CoAP over UDP, the CRI is conveyed by the element 'tpi_client' (see {{Section 4.2.1.1 of -mult-notif}}).
+As a consequence, the proxy listens to the IP multicast address and port number indicated by the server, i.e., per the CRI {{-href}} specified by a dedicated element of 'tpi_details', within the 'tp_info' parameter of the informative response. In particular, when transporting CoAP over UDP, the CRI is conveyed by the element 'tpi_client' (see {{Section 4.2.1.1 of -mult-notif}}).
 
-Furthermore, multicast notifications will match the phantom request stored at the proxy, based on the Token value specified by a dedicated element of 'tpi_details' within the 'tp_info' parameter, in the informative response. In particular, when transporting CoAP over UDP, the Token value is specified by the element 'tpi_token' (see {{Section 4.2.1.1 of -mult-notif}}).
+Furthermore, multicast notifications will match the phantom request stored at the proxy, based on the Token value specified by a dedicated element of 'tpi_details', within the 'tp_info' parameter of the informative response. In particular, when transporting CoAP over UDP, the Token value is specified by the element 'tpi_token' (see {{Section 4.2.1.1 of -mult-notif}}).
 
 Then, the proxy performs the following actions.
 
