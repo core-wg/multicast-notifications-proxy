@@ -238,14 +238,14 @@ Table of Contents
    As a consequence, the proxy listens to the IP multicast address and
    port number indicated by the server, i.e., per the CRI
    [I-D.ietf-core-href] specified by a dedicated element of
-   'tpi_details' within the 'tp_info' parameter, in the informative
+   'tpi_details', within the 'tp_info' parameter of the informative
    response.  In particular, when transporting CoAP over UDP, the CRI is
    conveyed by the element 'tpi_client' (see Section 4.2.1.1 of
    [I-D.ietf-core-observe-multicast-notifications]).
 
    Furthermore, multicast notifications will match the phantom request
    stored at the proxy, based on the Token value specified by a
-   dedicated element of 'tpi_details' within the 'tp_info' parameter, in
+   dedicated element of 'tpi_details', within the 'tp_info' parameter of
    the informative response.  In particular, when transporting CoAP over
    UDP, the Token value is specified by the element 'tpi_token' (see
    Section 4.2.1.1 of [I-D.ietf-core-observe-multicast-notifications]).
