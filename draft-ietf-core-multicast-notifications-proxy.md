@@ -686,7 +686,7 @@ The example provided in this appendix as reflected by the message exchange shown
 
 2. The server makes the phantom request available through other means (e.g., a pub-sub broker), together with the transport-specific information for listening to multicast notifications bound to the phantom request (see {{Section A of -mult-notif}}).
 
-3. Since the phantom request is a Deterministic Request, the server can more efficiently make it available in its smaller, plain version. The clients can obtain it from the particular alternative source and protect it as per {{Section 3 of -cacheable-oscore}}, thus all computing the same Deterministic Request to be used as phantom observation request.
+3. Since the phantom request is a Deterministic Request, the server can more efficiently make it available in its smaller, plain version. The clients can obtain it from the particular alternative source and protect it as per {{Section 3 of -cacheable-oscore}}, thus all composing the same Deterministic Request to be used as phantom observation request.
 
 4. If a client does not rely on a proxy between itself and the server, it simply sets the group observation and starts listening to multicast notifications. Building on Step 2 above, the same would happen if the phantom request was not specifically a Deterministic Request.
 
