@@ -2586,7 +2586,13 @@ When no interested origin clients remain, the proxy can simply forget about bein
 Note that the phantom request can be omitted, since it is the deterministic phantom request from the client, and thus "in terms of transport-independent information, identical to the registration request from the client" (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-14#section-4.2" class="relref">Section 4.2</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>).<a href="#section-8.1-2.8.2" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.9">
-            <p id="section-8.1-2.9.1">From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications. If the informative response includes a latest notification, the proxy caches it and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done it already and the request from the client was a Confirmable message).<a href="#section-8.1-2.9.1" class="pilcrow">¶</a></p>
+            <p id="section-8.1-2.9.1">After receiving the informative response, the proxy proceeds as follows.<a href="#section-8.1-2.9.1" class="pilcrow">¶</a></p>
+<p id="section-8.1-2.9.2">
+If the informative response includes the 'ph_req' parameter and this specifies transport-independent information different from the one of the sent Deterministic Request, then the proxy considers the informative response malformed.<a href="#section-8.1-2.9.2" class="pilcrow">¶</a></p>
+<p id="section-8.1-2.9.3">
+From the received informative response, the proxy retrieves everything needed to set itself as an observer in the group observation and it starts listening to multicast notifications.<a href="#section-8.1-2.9.3" class="pilcrow">¶</a></p>
+<p id="section-8.1-2.9.4">
+If the informative response includes the 'last_notif' parameter specifying the latest notification, the proxy caches that notification and forwards it back to the client. Otherwise, the proxy replies with an empty ACK (if it has not done that already and the request from the client was a Confirmable message).<a href="#section-8.1-2.9.4" class="pilcrow">¶</a></p>
 </li>
           <li id="section-8.1-2.10">
             <p id="section-8.1-2.10.1">Like for the case with a non-deterministic phantom request in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, the proxy fans out the multicast notifications to the origin clients as they come. Also, as new clients following the first one contact the proxy, the latter does not have to contact the server again as in <a href="#intermediaries-e2e-security" class="auto internal xref">Section 4</a>, since the deterministic phantom request would produce a cache hit as per <span>[<a href="#I-D.ietf-core-cacheable-oscore" class="cite xref">I-D.ietf-core-cacheable-oscore</a>]</span>. Thus, the proxy can serve such clients with the latest fresh multicast notification from its cache.<a href="#section-8.1-2.10.1" class="pilcrow">¶</a></p>
@@ -3510,7 +3516,15 @@ Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-b
         </h3>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-1.1">
-            <p id="appendix-A.1-1.1.1">Clarifications and editorial improvements.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-1.1.1">Clarifications:<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-A.1-1.1.2.1">
+                <p id="appendix-A.1-1.1.2.1.1">Proxy error handling for the informative response, when using deterministic phantom requests.<a href="#appendix-A.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="appendix-A.1-1.2">
+            <p id="appendix-A.1-1.2.1">Minor clarifications and editorial improvements.<a href="#appendix-A.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
