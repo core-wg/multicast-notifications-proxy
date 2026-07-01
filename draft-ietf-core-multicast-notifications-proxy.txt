@@ -5,11 +5,11 @@
 CoRE Working Group                                             M. Tiloca
 Internet-Draft                                                R. Höglund
 Intended status: Informational                                   RISE AB
-Expires: 1 January 2027                                        C. Amsüss
+Expires: 2 January 2027                                        C. Amsüss
                                                                         
                                                             F. Palombini
                                                              Ericsson AB
-                                                            30 June 2026
+                                                             1 July 2026
 
 
   Using Proxies for Observe Notifications as CoAP Multicast Responses
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 January 2027.
+   This Internet-Draft will expire on 2 January 2027.
 
 Copyright Notice
 
@@ -1104,7 +1104,7 @@ Table of Contents
         can more efficiently make it available in its smaller, plain
         version.  The clients can obtain it from the particular
         alternative source and protect it as per Section 3 of
-        [I-D.ietf-core-cacheable-oscore], thus all computing the same
+        [I-D.ietf-core-cacheable-oscore], thus all composing the same
         Deterministic Request to be used as phantom observation request.
 
    4.   If a client does not rely on a proxy between itself and the
