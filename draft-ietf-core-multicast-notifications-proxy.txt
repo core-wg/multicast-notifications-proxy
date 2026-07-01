@@ -1153,15 +1153,17 @@ Table of Contents
         the one of the sent Deterministic Request, then the proxy
         considers the informative response malformed.
 
-        From the received informative response, the proxy retrieves
-        everything needed to set itself as an observer in the group
-        observation and it starts listening to multicast notifications.
+        Otherwise, from the received informative response, the proxy
+        retrieves everything needed to set itself as an observer in the
+        group observation and it starts listening to multicast
+        notifications.
 
-        If the informative response includes the 'last_notif' parameter
-        specifying the latest notification, the proxy caches that
-        notification and forwards it back to the client.  Otherwise, the
-        proxy replies with an empty ACK (if it has not done that already
-        and the request from the client was a Confirmable message).
+        After that, if the informative response includes the
+        'last_notif' parameter specifying the latest notification, the
+        proxy caches that notification and forwards it back to the
+        client.  Otherwise, the proxy replies with an empty ACK (if it
+        has not done that already and the request from the client was a
+        Confirmable message).
 
    10.  Like for the case with a non-deterministic phantom request in
         Section 4, the proxy fans out the multicast notifications to the
