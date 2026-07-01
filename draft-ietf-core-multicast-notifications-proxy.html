@@ -3267,7 +3267,7 @@ In the OSCORE group, S has 'kid' = 0x05 as Sender ID and SN_5 = 501 (i.e., 0x01f
 <p id="section-9-3">The same assumptions compiled in <a href="#intermediaries-example-e2e-security-det-intro" class="auto internal xref">Section 8.1</a> apply in this scenario too, with the following differences:<a href="#section-9-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-9-4.1">
-          <p id="section-9-4.1.1">Assumption (2): when the server makes the phantom request available through other means (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-14#appendix-A" class="relref">Appendix A</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), the accompanying group observation data does <em>not</em> specify client-side, transport-specific information for listening to multicast notifications bound to the phantom request.<a href="#section-9-4.1.1" class="pilcrow">¶</a></p>
+          <p id="section-9-4.1.1">Assumption (2): when the server makes the phantom request available through other means (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-observe-multicast-notifications-14#appendix-A" class="relref">Appendix A</a> of [<a href="#I-D.ietf-core-observe-multicast-notifications" class="cite xref">I-D.ietf-core-observe-multicast-notifications</a>]</span>), the accompanying group observation data does <em>not</em> specify client-side transport-specific information for listening to multicast notifications bound to the phantom request.<a href="#section-9-4.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-9-4.2">
           <p id="section-9-4.2.1">Assumption (4): this assumption does not apply, since all the clients rely on PRX, although they are not aware to communicate with a proxy.<a href="#section-9-4.2.1" class="pilcrow">¶</a></p>
@@ -3290,7 +3290,7 @@ That is, a request sent with destination address PRX_ADDR and port number PRX_PO
               <p id="section-9-6.3.2.1.1">It provides server-side, transport-specific information, which consists of the address PRX_ADDR and port number PRX_PORT associated with PRX.<a href="#section-9-6.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-9-6.3.2.2">
-              <p id="section-9-6.3.2.2.1">It does not provide any client-side, transport-specific information.<a href="#section-9-6.3.2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-9-6.3.2.2.1">It does not provide any client-side transport-specific information.<a href="#section-9-6.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-9-6.3.3">
@@ -3315,7 +3315,7 @@ Assuming that the group information data has a format consistent with the 'tp_in
 <p id="section-9.1-4">The main process consists of the following steps.<a href="#section-9.1-4" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-9.1-5">
 <li id="section-9.1-5.1">
-            <p id="section-9.1-5.1.1">From the group observation data, the client knows the deterministic phantom request PH_REQ, the address PRX_ADDR, and the port number PRX_PORT. However, the client does not have client-side, transport-specific information.<a href="#section-9.1-5.1.1" class="pilcrow">¶</a></p>
+            <p id="section-9.1-5.1.1">From the group observation data, the client knows the deterministic phantom request PH_REQ, the address PRX_ADDR, and the port number PRX_PORT. However, the client does not have client-side transport-specific information.<a href="#section-9.1-5.1.1" class="pilcrow">¶</a></p>
 <p id="section-9.1-5.1.2">
 In such a particular situation, the client sends PH_REQ with destination address PRX_ADDR and port number PRX_PORT, i.e., to PRX.<a href="#section-9.1-5.1.2" class="pilcrow">¶</a></p>
 </li>

@@ -1459,7 +1459,7 @@ Table of Contents
    *  Assumption (2): when the server makes the phantom request
       available through other means (see Appendix A of
       [I-D.ietf-core-observe-multicast-notifications]), the accompanying
-      group observation data does _not_ specify client-side, transport-
+      group observation data does _not_ specify client-side transport-
       specific information for listening to multicast notifications
       bound to the phantom request.
 
@@ -1489,7 +1489,7 @@ Table of Contents
          consists of the address PRX_ADDR and port number PRX_PORT
          associated with PRX.
 
-      -  It does not provide any client-side, transport-specific
+      -  It does not provide any client-side transport-specific
          information.
 
       Assuming that the group information data has a format consistent
@@ -1522,7 +1522,7 @@ Table of Contents
    1.  From the group observation data, the client knows the
        deterministic phantom request PH_REQ, the address PRX_ADDR, and
        the port number PRX_PORT.  However, the client does not have
-       client-side, transport-specific information.
+       client-side transport-specific information.
 
        In such a particular situation, the client sends PH_REQ with
        destination address PRX_ADDR and port number PRX_PORT, i.e., to
