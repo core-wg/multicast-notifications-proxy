@@ -1010,7 +1010,13 @@ The main process consists of the following steps.
 
    That is, if PH_REQ results in a cache hit at PRX, then PRX replies to the client with the latest multicast notification for the target resource from its cache and takes no further actions.
 
-   Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-byte, the server replies to PRX with an unprotected informative response, where 'tp_info' also includes the 'tpi_details' element, specifying the information to receive multicast notifications for the target resource. Based on such information, PRX starts listening to multicast notifications. If the informative response includes a latest notification, then PRX caches that notification and forwards it to the client.
+   Otherwise, PRX forwards PH_REQ to the server. After recognizing PH_REQ byte-by-byte, the server replies to PRX with an unprotected informative response, where 'tp_info' includes:
+
+   * The 'tpi_server' element, specifying the addressing information of the server, i.e., the source addressing information of the multicast notifications that are sent for the group observation.
+
+   * The 'tpi_details' element, specifying the information to receive multicast notifications for the target resource.
+
+   Based on such information, PRX starts listening to multicast notifications. If the informative response includes a latest notification, then PRX caches that notification and forwards it to the client.
 
 Editor's note: add a figure showing an example of message exchange.
 
@@ -1084,6 +1090,8 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 * Clarifications:
 
   * Proxy error handling for the informative response, when using deterministic phantom requests.
+
+  * Unprotected informative response sent to the reverse-proxy, when using deterministic phantom requests.
 
 * Minor clarifications and editorial improvements.
 
