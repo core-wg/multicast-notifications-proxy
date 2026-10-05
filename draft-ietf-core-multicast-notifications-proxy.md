@@ -450,8 +450,7 @@ C1      C2      P         S
 |       |       |         |   for the group observation of /r)
 |       |       |         |
 |       |       |<--------+  Token: 0x5e
-|       |       | 2.05    |  OSCORE: - (empty)
-|       |       |         |  Max-Age: 0
+|       |       | 2.04    |  OSCORE: - (empty)
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -478,8 +477,7 @@ C1      C2      P         S
 |       |       |         |  }
 |       |       |         |
 |<--------------+         |  Token: 0x4a
-| 2.05  |       |         |  OSCORE: - (empty)
-|       |       |         |  Max-Age: 0
+| 2.04  |       |         |  OSCORE: - (empty)
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload)
@@ -549,8 +547,7 @@ C1      C2      P         S
 |       |       |         |   for the group observation of /r)
 |       |       |         |
 |       |       |<--------+  Token: 0x5f
-|       |       | 2.05    |  OSCORE: - (empty)
-|       |       |         |  Max-Age: 0
+|       |       | 2.04    |  OSCORE: - (empty)
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
@@ -577,8 +574,7 @@ C1      C2      P         S
 |       |       |         |  }
 |       |       |         |
 |       |<------+         |  Token: 0x01
-|       | 2.05  |         |  OSCORE: - (empty)
-|       |       |         |  Max-Age: 0
+|       | 2.04  |         |  OSCORE: - (empty)
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  (Same Encrypted_payload)
@@ -1090,6 +1086,8 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 * Fixes in the example of message exchange with Group OSCORE:
 
   * Integer abbreviations of 'join_uri' and 'sec_gp'.
+
+  * Outer response code of the informative responses.
 
 ## Version -01 to -02 ## {#sec-01-02}
 
