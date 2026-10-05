@@ -471,9 +471,9 @@ C1      C2      P         S
 |       |       |         |      / last_notif / 2 : bstr(0x45 |
 |       |       |         |                          OPT | 0xff |
 |       |       |         |                          PAYLOAD | SIGN),
-|       |       |         |      / join_uri /   4 : "coap://myGM/
+|       |       |         |      / join_uri /   5 : "coap://myGM/
 |       |       |         |                         ace-group/myGroup",
-|       |       |         |      / sec_gp /     5 : "myGroup"
+|       |       |         |      / sec_gp /     6 : "myGroup"
 |       |       |         |    }
 |       |       |         |  }
 |       |       |         |
@@ -570,9 +570,9 @@ C1      C2      P         S
 |       |       |         |      / last_notif / 2 : bstr(0x45 |
 |       |       |         |                          OPT | 0xff |
 |       |       |         |                          PAYLOAD | SIGN),
-|       |       |         |      / join_uri /   4 : "coap://myGM/
+|       |       |         |      / join_uri /   5 : "coap://myGM/
 |       |       |         |                         ace-group/myGroup",
-|       |       |         |      / sec_gp /     5 : "myGroup"
+|       |       |         |      / sec_gp /     6 : "myGroup"
 |       |       |         |    }
 |       |       |         |  }
 |       |       |         |
@@ -1084,6 +1084,12 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
 
 # Document Updates # {#sec-document-updates}
 {:removeinrfc}
+
+## Version -02 to -03 ## {#sec-02-03}
+
+* Fixes in the example of message exchange with Group OSCORE:
+
+  * Integer abbreviations of 'join_uri' and 'sec_gp'.
 
 ## Version -01 to -02 ## {#sec-01-02}
 
