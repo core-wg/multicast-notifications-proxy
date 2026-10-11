@@ -5,11 +5,11 @@
 CoRE Working Group                                             M. Tiloca
 Internet-Draft                                                R. Höglund
 Intended status: Informational                                   RISE AB
-Expires: 8 April 2027                                          C. Amsüss
+Expires: 14 April 2027                                         C. Amsüss
                                                                         
                                                             F. Palombini
                                                              Ericsson AB
-                                                          5 October 2026
+                                                         11 October 2026
 
 
   Using Proxies for Observe Notifications as CoAP Multicast Responses
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 April 2027.
+   This Internet-Draft will expire on 14 April 2027.
 
 Copyright Notice
 
@@ -810,6 +810,26 @@ Table of Contents
  |       |       |         |
  |       |       |         |  (S creates a group observation of /r)
  |       |       |         |
+ |       |       |         | (S prepares the initial multicast
+ |       |       |         |  notification INIT_NOTIF below)
+ |       |       |         |
+ |       |       |         | 2.05 (Content)
+ |       |       |         | Token: 0x7b
+ |       |       |         | Observe: 0
+ |       |       |         | OSCORE: [kid:0x05, Partial IV:0x01f6]
+ |       |       |         | <Other class U/I options>
+ |       |       |         | 0xff
+ |       |       |         | Encrypted_payload {
+ |       |       |         |   2.05 (Content),
+ |       |       |         |   Observe: - (empty),
+ |       |       |         |   <Other class E options>,
+ |       |       |         |   0xff,
+ |       |       |         |   Payload: "1234"
+ |       |       |         | }
+ |       |       |         | <Countersignature>
+ |       |       |         |
+ |       |       |         | (S steps SN_5 in the Group OSCORE
+ |       |       |         |  Security Context: SN_5 <-- 503)
  |       |       |         |
  |       |       |         |  (S increments the observer counter
  |       |       |         |   for the group observation of /r)
@@ -980,7 +1000,7 @@ Table of Contents
  |       |       |   (##)  |
  |       |       |<--------+  Token: 0x7b
  |       |       | 2.05    |  Observe: 11
- |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+ |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f7]
  |       |       |         |  Max-Age: 0
  |       |       |         |  <Other class U/I options>
  |       |       |         |  0xff
@@ -995,7 +1015,7 @@ Table of Contents
  |  (#)  |       |         |
  |<--------------+         |  Token: 0x4b
  | 2.05  |       |         |  Observe: 54123
- |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+ |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f7]
  |       |       |         |  Max-Age: 0
  |       |       |         |  <Other class U/I options>
  |       |       |         |  0xff
@@ -1004,7 +1024,7 @@ Table of Contents
  |       |  (#)  |         |
  |       |<------+         |  Token: 0x02
  |       | 2.05  |         |  Observe: 54123
- |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+ |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f7]
  |       |       |         |  Max-Age: 0
  |       |       |         |  <Other class U/I options>
  |       |       |         |  0xff
@@ -1782,6 +1802,8 @@ A.1.  Version -02 to -03
       -  Integer abbreviations of 'join_uri' and 'sec_gp'.
 
       -  Outer response code of the informative responses.
+
+      -  The server consumes a Partial IV when producing INIT_NOTIF.
 
 A.2.  Version -01 to -02
 
