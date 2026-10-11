@@ -781,13 +781,31 @@ C1      C2      P         S
 |       |       |         |
 |       |       |         |  (S creates a group observation of /r)
 |       |       |         |
+|       |       |         |  (S prepares the initial multicast
+|       |       |         |   notification INIT_NOTIF below)
+|       |       |         |
+|       |       |         |  0x45 (2.05 Content)
+|       |       |         |  Observe: 10
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5]
+|       |       |         |  Max-Age: 3000
+|       |       |         |  <Other class U/I options>
+|       |       |         |  0xff
+|       |       |         |  Encrypted_payload {
+|       |       |         |    0x45 (2.05 Content),
+|       |       |         |    Observe: - (empty),
+|       |       |         |    Max-Age: 3000,
+|       |       |         |    Payload: "1234"
+|       |       |         |  }
+|       |       |         |  <Countersignature>
+|       |       |         |
+|       |       |         |  (S steps SN_5 in the Group OSCORE
+|       |       |         |   Security Context: SN_5 <-- 502)
+|       |       |         |
 |       |       |         |  (The server does not respond to PH_REQ.
 |       |       |         |   The server stores PH_REQ locally and
 |       |       |         |   makes it available at an external source)
 |       |       |         |
-|       |       |         |
 |       |       |         |  (C1 obtains PH_REQ and sends it to P)
-|       |       |         |
 |       |       |         |
 +-------------->|         |  Token: 0x4a
 | FETCH |       |         |  Uri-Host: "sensor.example"
@@ -824,26 +842,8 @@ C1      C2      P         S
 |       |       |         |   comparison against the stored one, and
 |       |       |         |   skips any Group OSCORE processing)
 |       |       |         |
-|       |       |         |
-|       |       |         |  (S prepares the "last notification"
-|       |       |         |   response defined below)
-|       |       |         |
-|       |       |         |  0x45 (2.05 Content)
-|       |       |         |  Observe: 10
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5]
-|       |       |         |  Max-Age: 3000
-|       |       |         |  <Other class U/I options>
-|       |       |         |  0xff
-|       |       |         |  Encrypted_payload {
-|       |       |         |    0x45 (2.05 Content),
-|       |       |         |    Observe: - (empty),
-|       |       |         |    Max-Age: 3000,
-|       |       |         |    Payload: "1234"
-|       |       |         |  }
-|       |       |         |  <Countersignature>
-|       |       |         |
 |       |       |         |  (S increments the observer counter
-|       |       |         |  for the group observation of /r)
+|       |       |         |   for the group observation of /r)
 |       |       |         |
 |       |       |         |  (S responds to the proxy with an
 |       |       |         |   unprotected informative response)
@@ -859,18 +859,17 @@ C1      C2      P         S
 |       |       |         |           cri'coap://SRV_ADDR:SRV_PORT/',
 |       |       |         |             cri'coap://GRP_ADDR:GRP_PORT/',
 |       |       |         |               0x7b],
-|       |       |         |    / last_notif / 2 : <this conveys
-|       |       |         |                   the "last notification"
-|       |       |         |                   response prepared above>
+|       |       |         |    / last_notif / 2 : <this conveys the
+|       |       |         |                        INIT_NOTIF response
+|       |       |         |                        prepared above>
 |       |       |         |  }
 |       |       |         |
 |       |       |         |  (P extracts PH_REQ and starts listening
 |       |       |         |   to multicast notifications with Token
 |       |       |         |   0x7b at GRP_ADDR:GRP_PORT)
 |       |       |         |
-|       |       |         |  (P extracts the "last notification"
-|       |       |         |   response, caches it, and forwards
-|       |       |         |   it back to C1)
+|       |       |         |  (P extracts the INIT_NOTIF response,
+|       |       |         |   caches it, and forwards it back to C1)
 |       |       |         |
 |<--------------+         |  Token: 0x4a
 | 2.05  |       |         |  Observe: 54120
@@ -1110,6 +1109,8 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
   * Outer response code of the informative responses.
 
   * The server consumes a Partial IV when producing INIT_NOTIF.
+
+* Fixes in the example of message exchange with Group OSCORE and Deterministic Request.
 
 ## Version -01 to -02 ## {#sec-01-02}
 
