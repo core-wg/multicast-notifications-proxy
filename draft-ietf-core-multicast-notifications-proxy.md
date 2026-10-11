@@ -293,16 +293,25 @@ C1     C2     P        S
 |      |      |        |
 |      |      |        |  (S creates a group observation of /r)
 |      |      |        |
+|      |      |        |  (S prepares the initial multicast
+|      |      |        |   notification INIT_NOTIF below)
+|      |      |        |
+|      |      |        |  2.05 (Content)
+|      |      |        |  Token: 0x7b
+|      |      |        |  Observe: 0
+|      |      |        |  <Other options>
+|      |      |        |  0xff
+|      |      |        |  Payload: "1234"
+|      |      |        |
 |      |      |        |  (S increments the observer counter
 |      |      |        |   for the group observation of /r)
-|      |      |        |
-|      |      |        |
 |      |      |        |
 |      |      |<-------+  Token: 0x5e
 |      |      | 5.03   |  Content-Format: application/
 |      |      |        |     informative-response+cbor
 |      |      |        |  Max-Age: 0
 |      |      |        |  <Other options>
+|      |      |        |  0xff
 |      |      |        |  Payload: {
 |      |      |        |    / tp_info /    0 : [
 |      |      |        |            cri'coap://SRV_ADDR:SRV_PORT/',
@@ -312,9 +321,6 @@ C1     C2     P        S
 |      |      |        |                            PAYLOAD)
 |      |      |        |  }
 |      |      |        |
-|      |      |        |  (PAYLOAD in 'last_notif' : "1234")
-|      |      |        |
-|      |      |        |
 |      |      |        |  (The proxy starts listening to the
 |      |      |        |   GRP_ADDR address and the GRP_PORT port)
 |      |      |        |
@@ -323,6 +329,7 @@ C1     C2     P        S
 |<------------+        |  Token: 0x4a
 | 2.05 |      |        |  Observe: 54120
 |      |      |        |  <Other options>
+|      |      |        |  0xff
 |      |      |        |  Payload: "1234"
 |      |      |        |
 
@@ -338,6 +345,7 @@ C1     C2     P        S
 |      |<-----+        |  Token: 0x01
 |      | 2.05 |        |  Observe: 54120
 |      |      |        |  <Other options>
+|      |      |        |  0xff
 |      |      |        |  Payload: "1234"
 |      |      |        |
 
@@ -351,16 +359,19 @@ C1     C2     P        S
 |      |      |<-------+  Token: 0x7b
 |      |      | 2.05   |  Observe: 11
 |      |      |        |  <Other options>
+|      |      |        |  0xff
 |      |      |        |  Payload: "5678"
 |      |      |        |
 |<------------+        |  Token: 0x4a
 | 2.05 |      |        |  Observe: 54123
 |      |      |        |  <Other options>
+|      |      |        |  0xff
 |      |      |        |  Payload: "5678"
 |      |      |        |
 |      |<-----+        |  Token: 0x01
 |      | 2.05 |        |  Observe: 54123
 |      |      |        |  <Other options>
+|      |      |        |  0xff
 |      |      |        |  Payload: "5678"
 |      |      |        |
 
@@ -395,7 +406,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -408,12 +419,11 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
 |       |       |         |  }
-|       |       |         |
 |       |       |         |
 |       |       |         |  (S allocates the available
 |       |       |         |   Token value 0x7b)
@@ -433,7 +443,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -517,7 +527,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -544,7 +554,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -557,7 +567,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -613,7 +623,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -773,7 +783,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -784,16 +794,19 @@ C1      C2      P         S
 |       |       |         |  (S prepares the initial multicast
 |       |       |         |   notification INIT_NOTIF below)
 |       |       |         |
-|       |       |         |  0x45 (2.05 Content)
+|       |       |         |  2.05 (Content)
+|       |       |         |  Token: 0x7b
 |       |       |         |  Observe: 10
 |       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f5]
 |       |       |         |  Max-Age: 3000
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x45 (2.05 Content),
+|       |       |         |    2.05 (Content),
 |       |       |         |    Observe: - (empty),
 |       |       |         |    Max-Age: 3000,
+|       |       |         |    <Other class E options>,
+|       |       |         |    0xff,
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
 |       |       |         |  <Countersignature>
@@ -817,7 +830,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -832,7 +845,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -881,6 +894,8 @@ C1      C2      P         S
 |       |       |         |    0x45 (2.05 Content),
 |       |       |         |    Observe: - (empty),
 |       |       |         |    Max-Age: 3000,
+|       |       |         |    <Other class E options>,
+|       |       |         |    0xff,
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
 |       |       |         |  <Countersignature>
@@ -901,7 +916,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x01 (GET),
+|       |       |         |    0.01 (GET),
 |       |       |         |    Observe: 0 (register),
 |       |       |         |    Uri-Path: "r",
 |       |       |         |    <Other class E options>
@@ -919,6 +934,8 @@ C1      C2      P         S
 |       |       |         |    0x45 (2.05 Content),
 |       |       |         |    Observe: - (empty),
 |       |       |         |    Max-Age: 3000,
+|       |       |         |    <Other class E options>,
+|       |       |         |    0xff,
 |       |       |         |    Payload: "1234"
 |       |       |         |  }
 |       |       |         |  <Countersignature>
@@ -938,7 +955,7 @@ C1      C2      P         S
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
 |       |       |         |  Encrypted_payload {
-|       |       |         |    0x45 (2.05 Content),
+|       |       |         |    2.05 (Content),
 |       |       |         |    Observe: - (empty),
 |       |       |         |    Max-Age: 3000,
 |       |       |         |    <Other class E options>,
@@ -1111,6 +1128,8 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
   * The server consumes a Partial IV when producing INIT_NOTIF.
 
 * Fixes in the example of message exchange with Group OSCORE and Deterministic Request.
+
+* Examples: aligned notation with that of draft-ietf-core-observe-multicast-notifications.
 
 ## Version -01 to -02 ## {#sec-01-02}
 
