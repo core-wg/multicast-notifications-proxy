@@ -445,6 +445,26 @@ C1      C2      P         S
 |       |       |         |
 |       |       |         |  (S creates a group observation of /r)
 |       |       |         |
+|       |       |         | (S prepares the initial multicast
+|       |       |         |  notification INIT_NOTIF below)
+|       |       |         |
+|       |       |         | 2.05 (Content)
+|       |       |         | Token: 0x7b
+|       |       |         | Observe: 0
+|       |       |         | OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         | <Other class U/I options>
+|       |       |         | 0xff
+|       |       |         | Encrypted_payload {
+|       |       |         |   2.05 (Content),
+|       |       |         |   Observe: - (empty),
+|       |       |         |   <Other class E options>,
+|       |       |         |   0xff,
+|       |       |         |   Payload: "1234"
+|       |       |         | }
+|       |       |         | <Countersignature>
+|       |       |         |
+|       |       |         | (S steps SN_5 in the Group OSCORE
+|       |       |         |  Security Context: SN_5 <-- 503)
 |       |       |         |
 |       |       |         |  (S increments the observer counter
 |       |       |         |   for the group observation of /r)
@@ -615,7 +635,7 @@ C1      C2      P         S
 |       |       |   (##)  |
 |       |       |<--------+  Token: 0x7b
 |       |       | 2.05    |  Observe: 11
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f7]
 |       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -630,7 +650,7 @@ C1      C2      P         S
 |  (#)  |       |         |
 |<--------------+         |  Token: 0x4b
 | 2.05  |       |         |  Observe: 54123
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f7]
 |       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -639,7 +659,7 @@ C1      C2      P         S
 |       |  (#)  |         |
 |       |<------+         |  Token: 0x02
 |       | 2.05  |         |  Observe: 54123
-|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f6]
+|       |       |         |  OSCORE: [kid:0x05, Partial IV:0x01f7]
 |       |       |         |  Max-Age: 0
 |       |       |         |  <Other class U/I options>
 |       |       |         |  0xff
@@ -1088,6 +1108,8 @@ Note to RFC Editor: In the table above, please replace TBD47 with the registered
   * Integer abbreviations of 'join_uri' and 'sec_gp'.
 
   * Outer response code of the informative responses.
+
+  * The server consumes a Partial IV when producing INIT_NOTIF.
 
 ## Version -01 to -02 ## {#sec-01-02}
 
