@@ -156,7 +156,7 @@ Since the informative responses from the origin server are protected specificall
 
 In fact, the proxy adjacent to the origin server is not able to access the encrypted payload of such informative responses. Hence, the proxy cannot retrieve the 'ph_req' and 'tp_info' parameters necessary to correctly receive multicast notifications and forward them back to the clients.
 
-Consequently, differently from what is defined in {{Section 11 of -mult-notif}}, a proxy that receives an informative response simply forwards it back to the (previous hop towards the) origin client that has sent the corresponding observation request. Note that the proxy does not even realize that the message is an informative response, since the outer Code field is set to 2.05 (Content).
+Consequently, differently from what is defined in {{intermediaries}}, a proxy that receives an informative response simply forwards it back to the (previous hop towards the) origin client that has sent the corresponding observation request. Note that the proxy does not even realize that the message is an informative response, since the outer Code field is set to 2.05 (Content).
 
 Upon receiving the informative response, the origin client does not configure an observation of the target resource yet. Instead, the origin client performs a new observe registration request, by transmitting the re-built phantom request as intended to reach the proxy adjacent to the origin server. In particular, the origin client includes the new CoAP option Listen-To-Multicast-Responses defined in {{ltmr-option}}, to provide that proxy with the transport-specific information required for receiving multicast notifications for the group observation.
 
